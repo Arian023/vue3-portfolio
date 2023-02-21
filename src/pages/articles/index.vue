@@ -31,7 +31,7 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
-const title = 'Articles • Jeferson S. Brito'
+const title = 'Articles • Arian Acevedo'
 const description =
   'Here you can find all of my articles, tutorials and guides, going from little css tips to software architecture, open source, user experience and so on'
 

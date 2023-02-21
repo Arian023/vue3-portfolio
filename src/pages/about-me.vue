@@ -16,7 +16,7 @@
         <h1 class="about-content__headline">About me</h1>
         <p>👋 Hey! How are you?</p>
         <p>
-          I'm Jeferson. I'm a
+          I'm Arian. I'm a
           <strong>software engineer</strong> dedicated to
           <em> crafting </em> things for the web through coding.
         </p>
@@ -43,7 +43,7 @@
 import { useRoute } from 'vue-router'
 import config from '../config/siteconfig.json'
 
-const title = 'About me • Jeferson S. Brito'
+const title = 'About me • Arian Acevedo'
 const { description } = config
 const route = useRoute()
 
