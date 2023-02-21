@@ -40,7 +40,7 @@ useHead({
   link: [
     {
       rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;700&display=swap',
+      href: 'https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap',
     },
   ],
 })

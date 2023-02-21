@@ -14,7 +14,7 @@
       <HeroAvatar>
         <img
           src="@/assets/img/profile.jpg"
-          alt="me"
+          alt="Foto de Arian"
           class="hero-avatar__image"
           width="140"
           height="140"

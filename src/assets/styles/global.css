@@ -23,11 +23,11 @@
   --text-xl: 1.25rem;
   --text-2xl: 2.5rem;
   --text-3xl: 3.75rem;
-  --font-sans: 'Source Sans Pro', -apple-system, 'Segoe UI',
+  --font-sans: 'Merriweather Sans', -apple-system, 'Segoe UI',
     Helvetica sans-serif;
-  --font-title: 'Raleway', sans-serif;
-  --font-serif: 'Roboto Slab', Palatino, Georgia, serif;
-  --font-mono: 'Source Code Pro', 'SF Mono', Consolas, Menlo, monospace;
+  --font-title: 'Jost', sans-serif;
+  --font-serif: 'Merriweather', Palatino, Georgia, serif;
+  --font-mono: 'Roboto Mono', 'SF Mono', Consolas, Menlo, monospace;
   --radius-default: 4px;
   --elevation-1: 0 1px 3px rgba(0, 0, 0, 0.2);
   --elevation-2: 0 4px 4px rgba(0, 0, 0, 0.23);

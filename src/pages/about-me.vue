@@ -4,7 +4,7 @@
       <HeroAvatar>
         <img
           src="@/assets/img/profile.jpg"
-          alt="me"
+          alt="Foto de Arian"
           width="140"
           loading="lazy"
         />

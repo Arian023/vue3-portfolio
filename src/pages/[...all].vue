@@ -11,7 +11,7 @@
         />
         <img
           src="@/assets/img/water_drop.png"
-          alt="water drop"
+          alt="Gota de agua"
           loading="lazy"
           class="sweat"
           width="30"
@@ -19,21 +19,21 @@
         />
 
         <div :class="consoleStyles">
-          <pre>me@cia ~ $ {{ state.commandHistory[0] || state.prompt }} <span class="cursor" v-show="state.nextLine === 1"></span></pre>
+          <pre>arian@localhost ~ $ {{ state.commandHistory[0] || state.prompt }} <span class="cursor" v-show="state.nextLine === 1"></span></pre>
           <pre
             v-show="state.nextLine >= 2"
-          >Enter password: {{ state.commandHistory[1] || state.prompt }} <span class="cursor" v-show="state.nextLine === 2"></span></pre>
+          >Ingrese contraseña: {{ state.commandHistory[1] || state.prompt }} <span class="cursor" v-show="state.nextLine === 2"></span></pre>
           <pre
             v-show="state.nextLine >= 3"
           >mysql> {{ state.commandHistory[2] || state.prompt }}<span class="cursor" v-show="state.nextLine === 3"></span></pre>
-          <pre class="breakline" v-show="state.nextLine >= 4">uh-oh....</pre>
+          <pre class="breakline" v-show="state.nextLine >= 4">oh-oh....</pre>
           <pre class="breakline" v-show="state.nextLine >= 5">
-[ERROR] ... beep boop ...</pre
+[ERROR] ... biip buup ...</pre
           >
         </div>
 
         <blockquote class="credits">
-          (Credits for the console illustration to
+          (Créditos por la ilustración de la consola a
           <a href="https://codepen.io/joseluisq" target="_blank"
             >Jose Quintana</a
           >)
@@ -85,7 +85,7 @@ const state = reactive({
   errorDelay: 6000,
   prompt: '',
   commandHistory: [],
-  commands: ['mysql -u root -p', '*******', 'DELETE FROM secret_stuff'],
+  commands: ['mysql -u root -p', '*******', 'DELETE FROM cosas_secretas'],
   nextLine: 1,
   isComputerDead: false,
   isCrashing: false,
