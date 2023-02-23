@@ -7,12 +7,10 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    AButton: typeof import('./src/components/ui/AButton.vue')['default']
     AppLink: typeof import('./src/components/base/AppLink.vue')['default']
     ArticleControls: typeof import('./src/components/article/ArticleControls.vue')['default']
     ArticleHeading: typeof import('./src/components/article/ArticleHeading.vue')['default']
     BinaryTextSVG: typeof import('./src/components/svg/BinaryTextSVG.vue')['default']
-    Button: typeof import('./src/components/ui/Button.vue')['default']
     ButtonGroup: typeof import('./src/components/ui/ButtonGroup.vue')['default']
     CircleFillSVG: typeof import('./src/components/svg/CircleFillSVG.vue')['default']
     CustomThemes: typeof import('./src/components/demos/CustomThemes.vue')['default']

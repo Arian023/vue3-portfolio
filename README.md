@@ -4,7 +4,11 @@
   <h4 align="center">Desarrollado mediante Vue 3 y Vite</h4>
 </p>
 
-Basado en:(https://github.com/jeferson-sb/portfolio)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/0f03f268-084a-4a2c-aec4-6e3911c4f61e/deploy-status)](https://app.netlify.com/sites/arian-acevedo/deploys)
+
+Basado en: https://github.com/jeferson-sb/portfolio
+
+Ver en Netlify: https://arian-acevedo.netlify.app/
 
 ## Cómo empezar
 
