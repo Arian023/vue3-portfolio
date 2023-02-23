@@ -16,7 +16,7 @@
       <p class="post-preview__description">
         {{ excerpt }}
       </p>
-      <Button :href="href" :aria-describedby="articleId"> Read more </Button>
+      <VueButton :href="href" :aria-describedby="articleId"> Read more </VueButton>
     </template>
   </article>
 </template>

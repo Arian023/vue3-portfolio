@@ -40,8 +40,8 @@
         </blockquote>
       </div>
       <h1 v-else class="error">
-        Not found
-        <Button href="/" variant="outline">Go back home</Button>
+        No encontrado
+        <VueButton href="/" variant="outline">Go back home</VueButton>
       </h1>
     </transition>
     <SpotLightSVG class="spotlight" />
@@ -55,8 +55,8 @@ import { useRoute } from 'vue-router'
 import config from '../config/siteconfig.json'
 
 const route = useRoute()
-const title = 'Page Not Found'
-const description = 'This page could not be found'
+const title = 'Página no encontrada'
+const description = 'Esta página no pudo ser encontrada'
 
 useHead({
   title,

@@ -7,6 +7,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
+    AButton: typeof import('./src/components/ui/AButton.vue')['default']
     AppLink: typeof import('./src/components/base/AppLink.vue')['default']
     ArticleControls: typeof import('./src/components/article/ArticleControls.vue')['default']
     ArticleHeading: typeof import('./src/components/article/ArticleHeading.vue')['default']
@@ -49,6 +50,7 @@ declare module '@vue/runtime-core' {
     Tag: typeof import('./src/components/ui/Tag.vue')['default']
     TagGroup: typeof import('./src/components/ui/TagGroup.vue')['default']
     ThemeSwitcher: typeof import('./src/components/ui/ThemeSwitcher.vue')['default']
+    VueButton: typeof import('./src/components/ui/VueButton.vue')['default']
     VueSVG: typeof import('./src/components/svg/VueSVG.vue')['default']
   }
 }

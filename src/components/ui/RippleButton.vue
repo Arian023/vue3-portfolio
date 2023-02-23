@@ -1,15 +1,15 @@
 <template>
-  <Button class="button--ripple" v-bind="$attrs" @click="ripple">
+  <VueButton class="button--ripple" v-bind="$attrs" @click="ripple">
     <slot />
-  </Button>
+  </VueButton>
 </template>
 
 <script>
-import Button from '@/components/ui/Button'
+import VueButton from '@/components/ui/VueButton'
 
 export default {
   components: {
-    Button,
+    VueButton,
   },
   methods: {
     ripple(e) {

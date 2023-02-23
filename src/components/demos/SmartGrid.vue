@@ -1,7 +1,7 @@
 <template>
   <div>
     <ButtonGroup grouped>
-      <Button @click="columns = 6">
+      <VueButton @click="columns = 6">
         <template #icon>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -12,8 +12,8 @@
           </svg>
         </template>
         Small
-      </Button>
-      <Button @click="columns = 3">
+      </VueButton>
+      <VueButton @click="columns = 3">
         <template #icon>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -24,8 +24,8 @@
           </svg>
         </template>
         Large
-      </Button>
-      <Button @click="columns = 1">
+      </VueButton>
+      <VueButton @click="columns = 1">
         <template #icon>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -38,7 +38,7 @@
           </svg>
         </template>
         List
-      </Button>
+      </VueButton>
     </ButtonGroup>
     <code> --gallery-columns: {{ columns }} </code>
     <div ref="gallery" class="gallery">
@@ -54,12 +54,12 @@
 
 <script>
 import ButtonGroup from '@/components/ui/ButtonGroup.vue'
-import Button from '@/components/ui/Button.vue'
+import VueButton from '@/components/ui/VueButton.vue'
 
 export default {
   name: 'Gallery',
   components: {
-    Button,
+    VueButton,
     ButtonGroup,
   },
   data() {
