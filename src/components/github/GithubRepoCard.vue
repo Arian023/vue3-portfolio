@@ -18,7 +18,7 @@
       <span class="github-repo-pullrequest">
         <AppLink is-external :to="url">
           <PullRequestSVG />
-          <span>Last PR #{{ number }}</span>
+          <span>Último PR #{{ number }}</span>
         </AppLink>
       </span>
     </p>

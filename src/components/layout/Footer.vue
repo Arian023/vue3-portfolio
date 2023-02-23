@@ -2,8 +2,8 @@
   <footer class="footer">
     <div class="container">
       <p class="footer__copyright">
-        <em>Hecho con ♥ por Arian</em>
-        <span>@2023 - Presente. Todos los derechos reservados.</span>
+        <em>Hecho con ♥ por Arian © 2023.</em>
+        <span>El formato del sitio se encuentra bajo <a href="https://github.com/Arian023/vue3-portfolio/blob/main/LICENSE">licencia MIT</a>.</span>
       </p>
       <div class="built-tech">
         <AppLink

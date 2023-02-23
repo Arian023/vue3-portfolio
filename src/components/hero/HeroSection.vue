@@ -1,16 +1,15 @@
 <template>
   <section class="hero container has-ellipse-curve">
     <div class="hero-content">
-      <h1 class="hero__headline">I'm Arian Acevedo</h1>
+      <h1 class="hero__headline">Soy Arian Acevedo</h1>
       <p class="hero__description">
-        Software Engineer that crafts things for the Web, heavy focused on
-        front-end development enthusiastic and fascinated on UI design ✨
+        💻 Técnico Universitario en Desarrollo Web, enfocado mayormente en el desarrollo front-end y UX/UI.
       </p>
       <SocialMediaIcons />
     </div>
     <div class="hero-aside">
       <ScrollIndicator class="is-mobile-only" />
-      <h2 class="hero__subheadline">web developer</h2>
+      <h2 class="hero__subheadline">Desarrollador Web</h2>
       <HeroAvatar>
         <img
           src="@/assets/img/profile.jpg"
@@ -18,8 +17,7 @@
           class="hero-avatar__image"
           width="140"
           height="140"
-          loading="lazy"
-        />
+          loading="lazy" />
       </HeroAvatar>
     </div>
   </section>

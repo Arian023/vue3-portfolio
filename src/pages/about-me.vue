@@ -13,25 +13,19 @@
     <main id="main-content">
       <article class="about-content">
         <h1 class="about-content__headline">Sobre mí</h1>
-        <p>👋 Hola! Cómo estás?</p>
+        <p>👋 ¡Hola! ¿Cómo estás?</p>
         <p>
-          Soy Arian. I'm a
-          <strong>software engineer</strong> dedicated to
-          <em> crafting </em> things for the web through coding.
+          Me llamo Arian <small>(como Adrián, ¡pero sin la D!)</small>, y soy un <strong>Técnico Universitario en Desarrollo Web</strong>, con dicho título alcanzado en la Universidad Nacional del Comahue en el año 2021. 
         </p>
         <p>
-          I wrote my first lines of code back in 2014 of HTML4, CSS and ES5
-          using just a notepad in a very low machine 😅. Like many people I
-          graduated a few years later and since then I've been on this adventure
-          into the world of programming.
+          Mientras estuve estudiando, me dediqué mayormente al Soporte Técnico TI en campo, pero estoy muy dispuesto a dar el salto en mi carrera profesional por el lado de la ingeniería de software.
         </p>
         <p>
-          I don't have "favorites", but I like to code on JavaScript,
-          Typescript, Python, and Elixir at the moment. I also like to think
-          outside coding, prioritizing tasks/features, and proving the best
-          practices, fundamentals, and consistency throughout the code.
+          Por ello, estuve realizando diversos cursos y conceptos, entre los que puedo mencionar: accesibilidad y experiencia de usuario, edición de imágenes mediante Adobe Photoshop, conceptos de computación en la nube (léase AWS y GCP), frameworks de PHP y Javascript <small>(¡como Vue, con el que está armado este sitio!)</small>.
         </p>
-        <p>I'm into computers, ui design, games and anime (of course) :P</p>
+        <p>
+          En fin, una mezcla bastante variada de contenido, ya que uno hoy en día no puede quedarse atrás con la tecnología. Pero más allá de la programación, estoy interesado en la tecnología como hobby, así como el gaming en PC.
+        </p>
         <SocialMediaIcons boxed />
       </article>
     </main>

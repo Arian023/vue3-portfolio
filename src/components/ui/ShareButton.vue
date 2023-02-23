@@ -10,8 +10,7 @@
         stroke="currentColor"
         stroke-width="2"
         stroke-linecap="round"
-        stroke-linejoin="round"
-      >
+        stroke-linejoin="round">
         <title>Share</title>
         <circle cx="18" cy="5" r="3" />
         <circle cx="6" cy="12" r="3" />

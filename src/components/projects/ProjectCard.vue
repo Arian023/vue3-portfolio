@@ -24,7 +24,7 @@
           :to="github"
           :aria-labelledby="`${titleId} ${buttonId}`"
         >
-          Github
+          Ver en GitHub
         </AppLink>
       </div>
     </div>
