@@ -13,10 +13,13 @@
     "prettier": "prettier 'src/**/*.js' -w"
   },
   "dependencies": {
+    "@types/markdown-it": "^12.2.3",
     "@urql/vue": "^1.0.4",
     "@vueuse/head": "^1.0.26",
     "graphql": "^15.8.0",
     "lozad": "^1.16.0",
+    "markdown-it": "^13.0.1",
+    "postcss": "^8.4.21",
     "prism-theme-vars": "^0.2.4",
     "vite-ssg": "^0.22.1",
     "vue": "^3.2.47",
@@ -24,10 +27,10 @@
     "vue-router": "^4.1.6"
   },
   "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "critters": "^0.0.16",
     "eslint": "^8.34.0",
-    "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",

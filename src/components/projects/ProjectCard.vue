@@ -17,11 +17,11 @@
       <div class="project-card__footer">
         <TagGroup :tags="tags.split(',')" />
         <AppLink
+          :id="buttonId"
           variant="button"
           full
-          isExternal
+          is-external
           :to="github"
-          :id="buttonId"
           :aria-labelledby="`${titleId} ${buttonId}`"
         >
           Github

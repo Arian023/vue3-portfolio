@@ -33,9 +33,11 @@ export default {
     },
     width: {
       type: String,
+      default: '',
     },
     height: {
       type: String,
+      default: '',
     },
     bgColor: {
       type: String,

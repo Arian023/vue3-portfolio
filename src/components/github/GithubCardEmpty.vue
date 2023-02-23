@@ -1,7 +1,7 @@
 <template>
   <div class="card">
-    <h4 class="title">No recent contributions just yet.</h4>
-    <p class="subtitle">Working on in... 🛠️</p>
+    <h4 class="title">No hay contribuciones recientes todavía.</h4>
+    <p class="subtitle">Estoy en eso... 🛠️</p>
   </div>
 </template>
 

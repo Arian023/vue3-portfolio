@@ -18,7 +18,10 @@
 import { defineProps, reactive } from 'vue'
 
 const props = defineProps({
-  to: String,
+  to: {
+    type: String,
+    default: '',
+  },
   isExternal: {
     type: Boolean,
     default: false,

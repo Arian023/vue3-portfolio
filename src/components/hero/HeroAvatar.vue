@@ -11,6 +11,7 @@ export default {
   props: {
     src: {
       type: String,
+      default: '',
     },
     alt: {
       type: String,

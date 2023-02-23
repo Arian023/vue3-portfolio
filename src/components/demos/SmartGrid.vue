@@ -2,7 +2,7 @@
   <div>
     <ButtonGroup grouped>
       <Button @click="columns = 6">
-        <template v-slot:icon>
+        <template #icon>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -16,7 +16,7 @@
         Small
       </Button>
       <Button @click="columns = 3">
-        <template v-slot:icon>
+        <template #icon>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -30,7 +30,7 @@
         Large
       </Button>
       <Button @click="columns = 1">
-        <template v-slot:icon>
+        <template #icon>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -47,8 +47,8 @@
       </Button>
     </ButtonGroup>
     <code> --gallery-columns: {{ columns }} </code>
-    <div class="gallery" ref="gallery">
-      <figure class="image" v-for="i in 6" :key="i">
+    <div ref="gallery" class="gallery">
+      <figure v-for="i in 6" :key="i" class="image">
         <img
           :src="`https://picsum.photos/id/${i * 100}/400/200`"
           loading="lazy"

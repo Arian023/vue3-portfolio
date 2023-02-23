@@ -5,7 +5,7 @@
       <time :datetime="datetime">
         {{ displayDate }}
       </time>
-      <span class="article-source" v-if="crosspostedOn && crosspostLink">
+      <span v-if="crosspostedOn && crosspostLink" class="article-source">
         Originally posted on
         <a :href="crosspostLink" target="_blank" rel="noopener noreferrer">
           {{ crosspostedOn }}
@@ -21,18 +21,23 @@ export default {
   props: {
     title: {
       type: String,
+      default: '',
     },
     datetime: {
       type: String,
+      default: '',
     },
     displayDate: {
       type: String,
+      default: '',
     },
     crosspostedOn: {
       type: String,
+      default: '',
     },
     crosspostLink: {
       type: String,
+      default: '',
     },
     tags: {
       type: Array,

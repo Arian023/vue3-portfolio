@@ -1,24 +1,21 @@
 <template>
-  <main class="main" ref="main">
+  <main ref="main" class="main">
     <div class="hero">
       <div class="container">
-        <h1 class="hero__headline">Articles</h1>
+        <h1 class="hero__headline">Artículos</h1>
         <p class="hero__description">
-          Here you can find all of my published articles, tutorials and guides,
-          going from little css tips to software architecture, open source, user
-          experience and all sort of things. I hope you enjoy you're reading
-          📖👋
+          Aquí puedes encontrar mis artículos publicados, incluyendo tutoriales, guías y otras curiosidades. ¡Espero que disfrutes leerlos y aprendas algo nuevo!
         </p>
       </div>
     </div>
-    <section class="container" id="main-content">
+    <section id="main-content" class="container">
       <PostPreview
         v-for="article in allArticles"
         :key="article.id"
         :title="article.title"
         :date="new Date(article.date)"
         :href="article.path"
-        :articleId="article.articleId"
+        :article-id="article.articleId"
         :excerpt="article.excerpt"
         :tags="article.tags"
         size="long"
@@ -31,9 +28,9 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
-const title = 'Articles • Arian Acevedo'
+const title = 'Artículos • Arian Acevedo'
 const description =
-  'Here you can find all of my articles, tutorials and guides, going from little css tips to software architecture, open source, user experience and so on'
+  'Aquí puedes encontrar mis artículos publicados, incluyendo tutoriales, guías y otras curiosidades. ¡Espero que disfrutes leerlos y aprendas algo nuevo!'
 
 const main = ref(null)
 

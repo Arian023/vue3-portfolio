@@ -2,29 +2,31 @@
   <footer class="footer">
     <div class="container">
       <p class="footer__copyright">
-        <em>Made with ♥ by Arian</em>
+        <em>Hecho con ♥ por Arian</em>
         <span>@2021 - Present. All rights reserved.</span>
       </p>
       <div class="built-tech">
         <AppLink
           to="https://www.netlify.com/"
-          aria-label="Hosted on Netlify"
-          isExternal
+          aria-label="Hosteado en Netlify"
+          title="Hosteado en Netlify"
+          is-external
         >
           <NetlifyLogoSVG />
         </AppLink>
         <AppLink
           to="https://vuejs.org/"
-          aria-label="Built with Vue"
-          title="Built with Vue.js"
-          isExternal
+          aria-label="Hecho con Vue"
+          title="Hecho con Vue.js"
+          is-external
         >
           <VueSVG />
         </AppLink>
         <AppLink
-          to="https://www.github.com/"
-          aria-label="Source Code on Github"
-          isExternal
+          to="https://github.com/Arian023"
+          aria-label="Código fuente en Github"
+          title="Código fuente en Github"
+          is-external
         >
           <OctocatSVG />
         </AppLink>

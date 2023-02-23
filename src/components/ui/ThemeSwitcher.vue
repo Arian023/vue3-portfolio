@@ -1,8 +1,8 @@
 <template>
   <button
     class="theme-switcher"
-    @click="toggleTheme"
     aria-label="Switch theme between light and dark"
+    @click="toggleTheme"
   >
     <template v-if="variant === 'fade'">
       <transition name="fade">

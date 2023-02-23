@@ -1,5 +1,5 @@
 <template>
-  <nav class="mobile-navbar is-mobile-only" id="mobile-menu">
+  <nav id="mobile-menu" class="mobile-navbar is-mobile-only">
     <ul class="mobile-navbar-menu">
       <slot></slot>
     </ul>

@@ -1,5 +1,5 @@
 <template>
-  <Button @click="ripple" class="button--ripple" v-bind="$attrs">
+  <Button class="button--ripple" v-bind="$attrs" @click="ripple">
     <slot />
   </Button>
 </template>

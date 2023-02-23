@@ -6,12 +6,12 @@
       <ArticleHeading
         :title="title"
         :tags="tags"
-        :crosspostedOn="crosspostedOn"
-        :crosspostLink="crosspostLink"
+        :crossposted-on="crosspostedOn"
+        :crosspost-link="crosspostLink"
         :datetime="publishedAt"
-        :displayDate="formattedDate"
+        :display-date="formattedDate"
       />
-      <ArticleControls :articleUrl="canonicalUrl" />
+      <ArticleControls :article-url="canonicalUrl" />
       <section class="container">
         <div ref="articleBody" class="article-body">
           <router-view v-slot="{ Component, route }">

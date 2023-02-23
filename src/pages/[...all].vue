@@ -10,24 +10,24 @@
           width="200"
         />
         <img
+          v-if="state.isCrashing"
           src="@/assets/img/water_drop.png"
           alt="Gota de agua"
           loading="lazy"
           class="sweat"
           width="30"
-          v-if="state.isCrashing"
         />
 
         <div :class="consoleStyles">
-          <pre>arian@localhost ~ $ {{ state.commandHistory[0] || state.prompt }} <span class="cursor" v-show="state.nextLine === 1"></span></pre>
+          <pre>arian@localhost ~ $ {{ state.commandHistory[0] || state.prompt }} <span v-show="state.nextLine === 1" class="cursor"></span></pre>
           <pre
             v-show="state.nextLine >= 2"
-          >Ingrese contraseña: {{ state.commandHistory[1] || state.prompt }} <span class="cursor" v-show="state.nextLine === 2"></span></pre>
+          >Ingrese contraseña: {{ state.commandHistory[1] || state.prompt }} <span v-show="state.nextLine === 2" class="cursor"></span></pre>
           <pre
             v-show="state.nextLine >= 3"
-          >mysql> {{ state.commandHistory[2] || state.prompt }}<span class="cursor" v-show="state.nextLine === 3"></span></pre>
-          <pre class="breakline" v-show="state.nextLine >= 4">oh-oh....</pre>
-          <pre class="breakline" v-show="state.nextLine >= 5">
+          >mysql> {{ state.commandHistory[2] || state.prompt }}<span v-show="state.nextLine === 3" class="cursor"></span></pre>
+          <pre v-show="state.nextLine >= 4" class="breakline">oh-oh....</pre>
+          <pre v-show="state.nextLine >= 5" class="breakline">
 [ERROR] ... biip buup ...</pre
           >
         </div>

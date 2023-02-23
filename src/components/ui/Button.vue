@@ -1,8 +1,8 @@
 <template>
   <component
-    :class="styles"
     v-bind="$attrs"
     :is="isAnchor ? 'router-link' : 'button'"
+    :class="styles"
     :to="isAnchor ? href : null"
   >
     <slot name="icon"></slot>
@@ -26,6 +26,7 @@ export default {
     },
     href: {
       type: String,
+      default: '',
     },
     squared: {
       type: Boolean,

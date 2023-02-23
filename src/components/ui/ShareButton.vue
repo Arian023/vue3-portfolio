@@ -1,6 +1,6 @@
 <template>
-  <Button type="button" variant="outline" @click="share" circle>
-    <template v-slot:icon>
+  <Button type="button" variant="outline" circle @click="share">
+    <template #icon>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="20"
@@ -33,6 +33,7 @@ const props = defineProps({
   },
   title: {
     type: String,
+    default: '',
   },
 })
 

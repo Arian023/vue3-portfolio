@@ -1,8 +1,8 @@
 <template>
   <section class="github-projects container">
     <h3>Open Source</h3>
-    <h4>Latest contributions <small>(monthly updated)</small></h4>
-    <div class="github-repositories" v-if="pullRequests?.length">
+    <h4>Últimas contribuciones <small>(actualizado mensualmente)</small></h4>
+    <div v-if="pullRequests?.length" class="github-repositories">
       <GithubRepoCard
         v-for="pr in pullRequests"
         :key="pr.node.id"

@@ -8,14 +8,10 @@
     </div>
 
     <AppLink :to="href">
-      <h4 class="post-preview__title" :id="articleId">{{ title }}</h4>
+      <h4 :id="articleId" class="post-preview__title">{{ title }}</h4>
     </AppLink>
 
-    <Tag
-      tagName="NEW"
-      variant="accent"
-      v-show="size === 'short' && isRecentPost"
-    />
+    <Tag v-show="size === 'short' && isRecentPost" tag-name="NEW" variant="accent" />
     <template v-if="size === 'long'">
       <p class="post-preview__description">
         {{ excerpt }}
@@ -31,15 +27,19 @@ import { defineProps, computed } from 'vue'
 const props = defineProps({
   date: {
     type: Date,
+    default: ''
   },
   title: {
     type: String,
+    default: ''
   },
   href: {
     type: String,
+    default: ''
   },
   articleId: {
     type: String,
+    default: ''
   },
   excerpt: {
     type: String,
@@ -47,6 +47,7 @@ const props = defineProps({
   },
   tags: {
     type: String,
+    default: ''
   },
   size: {
     type: String,

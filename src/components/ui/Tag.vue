@@ -8,6 +8,7 @@ import { defineProps } from 'vue'
 const props = defineProps({
   tagName: {
     type: String,
+    default: '',
   },
   variant: {
     type: String,
