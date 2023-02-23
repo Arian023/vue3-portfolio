@@ -5,8 +5,7 @@
     v-bind="$attrs"
     :class="classes"
     target="_blank"
-    rel="noopener noreferrer"
-  >
+    rel="noopener noreferrer">
     <slot />
   </a>
   <router-link v-else v-bind="$props">

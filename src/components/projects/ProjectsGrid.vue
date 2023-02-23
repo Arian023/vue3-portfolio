@@ -1,6 +1,6 @@
 <template>
   <section id="projects" class="projects-grid container">
-    <h3>Projects</h3>
+    <h3>Proyectos</h3>
     <ProjectCard
       v-for="project in highlightedProjects"
       :key="project.title"
@@ -8,8 +8,7 @@
       :title="project.title"
       :description="project?.description"
       :tags="project.tags"
-      :github="project.github"
-    />
+      :github="project.github" />
   </section>
 </template>
 

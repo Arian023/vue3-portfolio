@@ -3,7 +3,7 @@
     <div class="container">
       <p class="footer__copyright">
         <em>Hecho con ♥ por Arian</em>
-        <span>@2021 - Present. All rights reserved.</span>
+        <span>@2023 - Presente. Todos los derechos reservados.</span>
       </p>
       <div class="built-tech">
         <AppLink

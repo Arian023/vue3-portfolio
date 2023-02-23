@@ -7,36 +7,36 @@
           alt="Doge"
           loading="lazy"
           class="doge"
-          width="200"
-        />
+          width="200" />
         <img
           v-if="state.isCrashing"
           src="@/assets/img/water_drop.png"
           alt="Gota de agua"
           loading="lazy"
           class="sweat"
-          width="30"
-        />
+          width="30" />
 
         <div :class="consoleStyles">
           <pre>arian@localhost ~ $ {{ state.commandHistory[0] || state.prompt }} <span v-show="state.nextLine === 1" class="cursor"></span></pre>
           <pre
-            v-show="state.nextLine >= 2"
-          >Ingrese contraseña: {{ state.commandHistory[1] || state.prompt }} <span v-show="state.nextLine === 2" class="cursor"></span></pre>
-          <pre
-            v-show="state.nextLine >= 3"
-          >mysql> {{ state.commandHistory[2] || state.prompt }}<span v-show="state.nextLine === 3" class="cursor"></span></pre>
+            v-show="
+              state.nextLine >= 2
+            ">Ingrese contraseña: {{ state.commandHistory[1] || state.prompt }} <span v-show="state.nextLine === 2" class="cursor"></span></pre>
+          <pre v-show="state.nextLine >= 3">
+            mysql> {{ state.commandHistory[2] || state.prompt }}
+            <span v-show="state.nextLine === 3" class="cursor"></span></pre>
           <pre v-show="state.nextLine >= 4" class="breakline">oh-oh....</pre>
           <pre v-show="state.nextLine >= 5" class="breakline">
-[ERROR] ... biip buup ...</pre
-          >
+            [ERROR] ... biip buup ...
+          </pre>
         </div>
 
         <blockquote class="credits">
           (Créditos por la ilustración de la consola a
-          <a href="https://codepen.io/joseluisq" target="_blank"
-            >Jose Quintana</a
-          >)
+          <a href="https://codepen.io/joseluisq" target="_blank">
+            Jose Quintana
+          </a>
+          )
         </blockquote>
       </div>
       <h1 v-else class="error">

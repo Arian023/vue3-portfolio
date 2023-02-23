@@ -6,17 +6,16 @@
           src="@/assets/img/profile.jpg"
           alt="Foto de Arian"
           width="140"
-          loading="lazy"
-        />
+          loading="lazy" />
       </HeroAvatar>
       <BinaryTextSVG />
     </aside>
     <main id="main-content">
       <article class="about-content">
-        <h1 class="about-content__headline">About me</h1>
-        <p>👋 Hey! How are you?</p>
+        <h1 class="about-content__headline">Sobre mí</h1>
+        <p>👋 Hola! Cómo estás?</p>
         <p>
-          I'm Arian. I'm a
+          Soy Arian. I'm a
           <strong>software engineer</strong> dedicated to
           <em> crafting </em> things for the web through coding.
         </p>
@@ -43,7 +42,7 @@
 import { useRoute } from 'vue-router'
 import config from '../config/siteconfig.json'
 
-const title = 'About me • Arian Acevedo'
+const title = 'Sobre mí • Arian Acevedo'
 const { description } = config
 const route = useRoute()
 

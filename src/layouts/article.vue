@@ -53,7 +53,7 @@ const crosspostLink = route.meta.frontmatter?.crosspostedLink
 const publishedAt = route.meta.frontmatter?.published_at
 const canonicalUrl = `${config.siteUrl}${route.path}`
 const formattedDate = computed(() =>
-  new Date(publishedAt).toLocaleString(['en-US'], {
+  new Date(publishedAt).toLocaleString(['es-ES'], {
     day: '2-digit',
     month: 'short',
     year: 'numeric',

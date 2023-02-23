@@ -14,17 +14,17 @@
           </li>
           <li class="navbar-menu__item">
             <router-link class="navbar-menu__link" to="/articles">
-              Articles
+              Artículos
             </router-link>
           </li>
           <li class="navbar-menu__item">
             <router-link class="navbar-menu__link" to="/about-me"
-              >About</router-link
+              >Sobre mí</router-link
             >
           </li>
           <li class="navbar-menu__item">
             <router-link class="navbar-menu__link" to="/#projects">
-              Projects
+              Proyectos
             </router-link>
           </li>
         </ul>
@@ -33,17 +33,17 @@
     <MobileNavbar>
       <li class="navbar-menu__item">
         <router-link class="navbar-menu__link" to="/articles">
-          Articles
+          Artículos
         </router-link>
       </li>
       <li class="navbar-menu__item">
         <router-link class="navbar-menu__link" to="/about-me"
-          >About</router-link
+          >Sobre mí</router-link
         >
       </li>
       <li class="navbar-menu__item">
         <router-link class="navbar-menu__link" to="/#projects">
-          Projects
+          Proyectos
         </router-link>
       </li>
     </MobileNavbar>

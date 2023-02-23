@@ -72,7 +72,7 @@ const diffInDays = (a, b) => {
 const isRecentPost = diffInDays(props.date, new Date()) <= 7
 
 const formattedDate = computed(() =>
-  props.date.toLocaleString(['en-US'], {
+  props.date.toLocaleString(['es-ES'], {
     day: '2-digit',
     month: 'short',
     year: 'numeric',

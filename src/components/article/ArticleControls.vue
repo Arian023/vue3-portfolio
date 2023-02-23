@@ -1,6 +1,6 @@
 <template>
   <div class="article-controls">
-    <AppLink to="/articles">View other articles</AppLink>
+    <AppLink to="/articles">Mira otros artículos</AppLink>
     <ShareButton :link="articleUrl" />
   </div>
 </template>

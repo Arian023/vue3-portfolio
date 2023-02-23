@@ -11,8 +11,7 @@
       v-model="theme"
       type="radio"
       name="theme"
-      value="spacegray"
-    />
+      value="spacegray" />
     <label for="spacegray">Spacegray</label>
 
     <div ref="body" class="preview-body">

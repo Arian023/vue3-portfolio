@@ -6,7 +6,7 @@
         {{ displayDate }}
       </time>
       <span v-if="crosspostedOn && crosspostLink" class="article-source">
-        Originally posted on
+        Originalmente publicado en
         <a :href="crosspostLink" target="_blank" rel="noopener noreferrer">
           {{ crosspostedOn }}
         </a>
