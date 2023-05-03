@@ -12,6 +12,7 @@ lerna-debug.log*
 src/.temp
 node_modules
 dist
+.vite-ssg-temp
 
 .env
 .idea
