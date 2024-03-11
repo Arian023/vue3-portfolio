@@ -11,7 +11,7 @@ export default {
       type: String,
       default: 'row',
       validator(val) {
-        return ['row', 'column'].includes(val)
+        return ['row', 'column'].includes(val);
       },
     },
     grouped: {
@@ -25,10 +25,10 @@ export default {
         'button-group': true,
         'button-group--vertical': this.direction === 'column',
         'button-group--grouped': this.grouped,
-      }
+      };
     },
   },
-}
+};
 </script>
 
 <style scoped>

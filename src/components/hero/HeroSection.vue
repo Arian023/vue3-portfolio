@@ -3,7 +3,8 @@
     <div class="hero-content">
       <h1 class="hero__headline">Soy Arian Acevedo</h1>
       <p class="hero__description">
-        💻 Técnico Universitario en Desarrollo Web, enfocado mayormente en el desarrollo front-end y UX/UI.
+        💻 Técnico Universitario en Desarrollo Web, enfocado mayormente en el
+        desarrollo front-end y UX/UI.
       </p>
       <SocialMediaIcons />
     </div>

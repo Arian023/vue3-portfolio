@@ -263,11 +263,11 @@ button {
 Then we just add a little bit of JavaScript to allow us to switch from one theme to another interactively:
 
 ```js
-const themeControl = document.querySelector('input[name=theme]')
+const themeControl = document.querySelector('input[name=theme]');
 
 themeControl.addEventListener('change', ({ target }) => {
-  document.documentElement.setAttribute('data-theme', target.value)
-})
+  document.documentElement.setAttribute('data-theme', target.value);
+});
 ```
 
 <InteractiveWrapper>
@@ -331,17 +331,17 @@ Another good use case for custom properties is to create or define grid columns 
 ```js
 const setInlineCSS = (selector, prop) => {
   Object.keys(prop).forEach((key) => {
-    document.querySelector(selector).style.setProperty(key, prop[key])
-  })
-}
+    document.querySelector(selector).style.setProperty(key, prop[key]);
+  });
+};
 
 document.querySelector('.large', () => {
-  setInlineCSS('gallery', { '--gallery-columns': 3 })
-})
+  setInlineCSS('gallery', { '--gallery-columns': 3 });
+});
 
 document.querySelector('.list', () => {
-  setInlineCSS('gallery', { '--gallery-columns': 1 })
-})
+  setInlineCSS('gallery', { '--gallery-columns': 1 });
+});
 ```
 
 In that way we can alternate between different layouts with just one property. It also works with media queries.

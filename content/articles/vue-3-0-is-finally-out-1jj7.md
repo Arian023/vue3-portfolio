@@ -57,10 +57,10 @@ The most simple way is to just plug in a cdn script tag:
         data() {
           return {
             message: 'I love Vue <3',
-          }
+          };
         },
-      })
-      app.mount('#app')
+      });
+      app.mount('#app');
     </script>
   </body>
 </html>
@@ -88,17 +88,17 @@ Now with Vue 3.x, we have a new Global API for creating an app instance.
 The idea is to place everything that mutates Vue's behavior at the level of the app instance.
 
 ```js
-import { createApp } from 'vue'
-import App from './App.vue'
+import { createApp } from 'vue';
+import App from './App.vue';
 
 // Create a Vue instance or app
-const app = createApp(App)
+const app = createApp(App);
 
-app.use(/* vue router, vuex, ... */)
-app.component(/* some global component... */)
-app.directive(/* some custom directive... */)
+app.use(/* vue router, vuex, ... */);
+app.component(/* some global component... */);
+app.directive(/* some custom directive... */);
 
-app.mount('#app')
+app.mount('#app');
 ```
 
 As you can see every configuration is scoped to a certain Vue application defined with `createApp`.
@@ -215,37 +215,37 @@ You can view this complete example in [this repo](https://github.com/jeferson-sb
 Another good example of Composition API implementation is to create an `IntersectionObserver` composition function to lazy load images or components, for instance:
 
 ```js
-import { ref } from 'vue'
+import { ref } from 'vue';
 
 export default function useIntersectionObserver() {
-  const isSupported = 'IntersectionObserver' in window
-  const isIntersecting = ref(false)
-  const isShown = ref(false)
+  const isSupported = 'IntersectionObserver' in window;
+  const isIntersecting = ref(false);
+  const isShown = ref(false);
 
   if (!isSupported) {
-    console.log('Your browser does not support this feature yet.')
+    console.log('Your browser does not support this feature yet.');
   }
 
   const observer = new IntersectionObserver((entries) => {
-    const component = entries[0]
+    const component = entries[0];
 
     if (component.isIntersecting && !isShown.value) {
-      isIntersecting.value = true
-      isShown.value = true
+      isIntersecting.value = true;
+      isShown.value = true;
     } else {
-      isIntersecting.value = false
+      isIntersecting.value = false;
     }
-  })
+  });
 
   const observe = (element) => {
-    observer.observe(element)
-  }
+    observer.observe(element);
+  };
 
   const unobserve = (element) => {
-    observer.unobserve(element)
-  }
+    observer.unobserve(element);
+  };
 
-  return { observe, unobserve, isIntersecting, isShown }
+  return { observe, unobserve, isIntersecting, isShown };
 }
 ```
 
@@ -262,28 +262,28 @@ Now in our component, we import it like a regular function and use the methods t
 </template>
 
 <script>
-  import { ref, computed, onMounted, onUnmounted, onBeforeUnmount } from 'vue'
-  import useIntersectionObserver from '../composables/useIntersectionObserver'
+  import { ref, computed, onMounted, onUnmounted, onBeforeUnmount } from 'vue';
+  import useIntersectionObserver from '../composables/useIntersectionObserver';
 
   export default {
     props: {
       game: Object,
     },
     setup(props, context) {
-      const el = ref(null)
-      const { observe, unobserve, isIntersecting } = useIntersectionObserver()
+      const el = ref(null);
+      const { observe, unobserve, isIntersecting } = useIntersectionObserver();
 
       onMounted(() => {
-        observe(el.value)
-      })
+        observe(el.value);
+      });
 
       onBeforeUnmount(() => {
-        unobserve(el.value)
-      })
+        unobserve(el.value);
+      });
 
-      return { el, isIntersecting }
+      return { el, isIntersecting };
     },
-  }
+  };
 </script>
 ```
 

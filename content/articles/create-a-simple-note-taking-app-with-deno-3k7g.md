@@ -88,16 +88,16 @@ Now we switch to our `src` folder and open `app.ts` to bootstrap our application
 // src/app.ts
 
 // Thirty-party modules
-import Denomander from 'https://deno.land/x/denomander/mod.ts'
+import Denomander from 'https://deno.land/x/denomander/mod.ts';
 
 // Local imports
-import * as notes from './notes.ts'
+import * as notes from './notes.ts';
 
 const program = new Denomander({
   app_name: 'Deno Notes App',
   app_description: 'Create notes in json format from the command line',
   app_version: '1.0.0',
-})
+});
 ```
 
 We are using a third-party module called Denomander, it's pretty much like [commander.js](https://github.com/tj/commander.js/), we will use it to create commands for us to run in the terminal.
@@ -173,7 +173,7 @@ Open `notes.ts` file and import the following modules:
 // src/notes.ts
 
 // Standard deno modules
-import * as path from 'https://deno.land/std/path/mod.ts'
+import * as path from 'https://deno.land/std/path/mod.ts';
 
 // Thirty party modules
 import iro, {
@@ -182,10 +182,10 @@ import iro, {
   inverse,
   red,
   yellow,
-} from 'https://deno.land/x/iro/src/iro.ts'
+} from 'https://deno.land/x/iro/src/iro.ts';
 
-const currentDir = Deno.cwd()
-const notesFilePath = path.resolve(`${currentDir}/data/notes-data.json`)
+const currentDir = Deno.cwd();
+const notesFilePath = path.resolve(`${currentDir}/data/notes-data.json`);
 ```
 
 [path](https://deno.land/std@0.92.0/path) is a file system standard module that we're going to use to manipulate file paths and directories . If you know some of Node.js, you'll notice that it's pretty similar to the `path` module.
@@ -198,36 +198,36 @@ Now Let's implement our first operations
 // src/notes.ts
 
 interface Note {
-  title: string
-  body: string
+  title: string;
+  body: string;
 }
 
 export async function fetchNotes() {
   try {
-    const file = await Deno.readTextFile(notesFilePath)
-    const notes: Note[] = JSON.parse(file)
-    return notes
+    const file = await Deno.readTextFile(notesFilePath);
+    const notes: Note[] = JSON.parse(file);
+    return notes;
   } catch (error) {
-    console.error(error)
-    return []
+    console.error(error);
+    return [];
   }
 }
 
 export async function listNotes() {
-  const notesList: Note[] = await fetchNotes()
+  const notesList: Note[] = await fetchNotes();
 
-  console.log(iro(' Your notes ', inverse))
+  console.log(iro(' Your notes ', inverse));
   for (const note of notesList) {
-    console.log(' - ', note.title)
-    console.log('●'.padStart(5), note.body)
+    console.log(' - ', note.title);
+    console.log('●'.padStart(5), note.body);
   }
 }
 
 export async function saveNotes(notes: Note[]) {
   try {
-    await Deno.writeTextFile(notesFilePath, JSON.stringify(notes))
+    await Deno.writeTextFile(notesFilePath, JSON.stringify(notes));
   } catch (error) {
-    throw new Error(`Unable to write contents to file: ${error}`)
+    throw new Error(`Unable to write contents to file: ${error}`);
   }
 }
 ```
@@ -242,29 +242,29 @@ Moving on, with these methods we are able to create and read commands:
 // src/notes.ts
 
 export async function createNote({ title, body }: Note) {
-  const notesList = await fetchNotes()
-  const isDuplicate = notesList.find((note: Note) => note.title === title)
+  const notesList = await fetchNotes();
+  const isDuplicate = notesList.find((note: Note) => note.title === title);
   if (!isDuplicate) {
-    notesList.push({ title, body })
-    await saveNotes(notesList)
+    notesList.push({ title, body });
+    await saveNotes(notesList);
 
-    console.log(iro('New note added!', bold, bgGreen))
+    console.log(iro('New note added!', bold, bgGreen));
   } else {
-    console.log(iro('Note title already taken!', inverse, red))
+    console.log(iro('Note title already taken!', inverse, red));
   }
 }
 
 export async function readNote(noteTitle: string) {
-  const notesList = await fetchNotes()
+  const notesList = await fetchNotes();
   const searchedNote = notesList.find((note: Note) => {
-    return note.title.toLocaleLowerCase() === noteTitle.toLocaleLowerCase()
-  })
+    return note.title.toLocaleLowerCase() === noteTitle.toLocaleLowerCase();
+  });
 
   if (searchedNote) {
-    console.log(iro(searchedNote.title, inverse))
-    console.log(searchedNote.body)
+    console.log(iro(searchedNote.title, inverse));
+    console.log(searchedNote.body);
   } else {
-    console.log(iro('Note not found!', bold, inverse, red))
+    console.log(iro('Note not found!', bold, inverse, red));
   }
 }
 ```
@@ -275,33 +275,33 @@ Finally, we implement the last two I/O operations for updating and removing our 
 // src/notes.ts
 
 export async function removeNote(title: string) {
-  const notesList = await fetchNotes()
+  const notesList = await fetchNotes();
   const notesToKeep = notesList.filter(
     (note: Note) => note.title.toLowerCase() !== title.toLowerCase()
-  )
+  );
   if (notesList.length > notesToKeep.length) {
-    await saveNotes(notesToKeep)
+    await saveNotes(notesToKeep);
 
-    console.log(iro('Note removed!', bgGreen))
+    console.log(iro('Note removed!', bgGreen));
   } else {
-    console.log(iro('No note found!', inverse, yellow))
+    console.log(iro('No note found!', inverse, yellow));
   }
 }
 
 export async function updateNote(note: string, { title, body }: Partial<Note>) {
-  const notesList = await fetchNotes()
+  const notesList = await fetchNotes();
   const currentNote = notesList.find(
     (n: Note) => n.title.toLowerCase() === note.toLowerCase()
-  )
-  const newNote = { title, body } as Note
+  );
+  const newNote = { title, body } as Note;
 
   if (currentNote) {
-    notesList.splice(notesList.indexOf(currentNote), 1, newNote)
-    await saveNotes(notesList)
+    notesList.splice(notesList.indexOf(currentNote), 1, newNote);
+    await saveNotes(notesList);
 
-    console.log(iro('Note updated!', bgGreen))
+    console.log(iro('Note updated!', bgGreen));
   } else {
-    console.log(iro('This note does not exists', inverse, yellow))
+    console.log(iro('This note does not exists', inverse, yellow));
   }
 }
 ```

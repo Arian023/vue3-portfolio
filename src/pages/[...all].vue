@@ -49,14 +49,14 @@
 </template>
 
 <script setup>
-import { ref, computed, reactive, onMounted, onUnmounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, computed, reactive, onMounted, onUnmounted } from 'vue';
+import { useRoute } from 'vue-router';
 
-import config from '../config/siteconfig.json'
+import config from '../config/siteconfig.json';
 
-const route = useRoute()
-const title = 'Página no encontrada'
-const description = 'Esta página no pudo ser encontrada'
+const route = useRoute();
+const title = 'Página no encontrada';
+const description = 'Esta página no pudo ser encontrada';
 
 useHead({
   title,
@@ -78,7 +78,7 @@ useHead({
       content: description,
     },
   ],
-})
+});
 
 const state = reactive({
   speed: 100,
@@ -89,89 +89,89 @@ const state = reactive({
   nextLine: 1,
   isComputerDead: false,
   isCrashing: false,
-})
+});
 
-const gen = ref(null)
+const gen = ref(null);
 
 const consoleStyles = computed(() => ({
   console: true,
   'console--burning': state.isCrashing,
-}))
+}));
 
 const typing = (command) => {
-  let i = 0
+  let i = 0;
   const timer = setInterval(() => {
     if (i < command.length) {
-      state.prompt += command.charAt(i)
-      i += 1
+      state.prompt += command.charAt(i);
+      i += 1;
     } else {
-      clearInterval(timer)
-      state.commandHistory.push(state.prompt)
-      state.prompt = ''
+      clearInterval(timer);
+      state.commandHistory.push(state.prompt);
+      state.prompt = '';
 
       if (state.commandHistory.length < state.commands.length) {
-        state.nextLine += 1
-        gen.value.next()
+        state.nextLine += 1;
+        gen.value.next();
       }
     }
-  }, state.speed)
-}
+  }, state.speed);
+};
 
 function* typeCommands() {
-  const [first, second, third] = state.commands
+  const [first, second, third] = state.commands;
 
-  yield typing(first)
-  yield typing(second)
-  yield typing(third)
+  yield typing(first);
+  yield typing(second);
+  yield typing(third);
 }
 
 const timeline = ({ start }) => {
-  let timeQueue = start
-  const scenes = []
+  let timeQueue = start;
+  const scenes = [];
 
   const play = () => {
     scenes.forEach((scene) => {
-      setTimeout(scene.cb, scene.timeStart)
-    })
-  }
+      setTimeout(scene.cb, scene.timeStart);
+    });
+  };
 
   const set = (name, cb) => {
-    timeQueue += 1500
-    scenes.push({ name, cb, timeStart: timeQueue })
-  }
+    timeQueue += 1500;
+    scenes.push({ name, cb, timeStart: timeQueue });
+  };
 
   return {
     play,
     set,
-  }
-}
+  };
+};
 
 onMounted(() => {
-  gen.value = typeCommands()
-  gen.value.next()
+  gen.value = typeCommands();
+  gen.value.next();
 
-  const t = timeline({ start: state.errorDelay })
+  const t = timeline({ start: state.errorDelay });
   t.set('message1', () => {
-    state.nextLine += 1
-  })
+    state.nextLine += 1;
+  });
 
   t.set('message2', () => {
-    state.nextLine += 1
-    state.isCrashing = true
-  })
+    state.nextLine += 1;
+    state.isCrashing = true;
+  });
 
   t.set('die', () => {
-    state.isComputerDead = true
-  })
+    state.isComputerDead = true;
+  });
 
-  t.play()
+  t.play();
 
-  document.body.classList.add('overflow--hidden')
-})
+  document.body.classList.add('overflow--hidden');
+});
 
 onUnmounted(() => {
-  document.body.classList.remove('overflow--hidden')
-})
+  document.body.classList.remove('overflow--hidden');
+});
 </script>
 
 <route lang="yaml">

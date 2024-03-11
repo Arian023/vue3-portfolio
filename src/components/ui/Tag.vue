@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps } from 'vue';
 
 const props = defineProps({
   tagName: {
@@ -14,12 +14,12 @@ const props = defineProps({
     type: String,
     default: '',
   },
-})
+});
 
 const styles = {
   tag: true,
   'tag--accent': props.variant,
-}
+};
 </script>
 
 <style scoped>

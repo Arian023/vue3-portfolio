@@ -15,7 +15,7 @@ coverImage: https://firebasestorage.googleapis.com/v0/b/portfolio-d3c7c.appspot.
 A GET request can be simple as calling the global `fetch` method:
 
 ```jsx
-fetch('https://jsonplaceholder.typicode.com/posts/')
+fetch('https://jsonplaceholder.typicode.com/posts/');
 ```
 
 It returns a response object that contains all the information about the response such as HTTP headers, status, type, and body.
@@ -43,7 +43,7 @@ Working with promises allows us to easily handle asynchronous operations. Using 
 fetch('https://jsonplaceholder.typicode.com/posts/', options)
   .then(onFulfilled, onRejected)
   .then((data) => console.log(data))
-  .catch((err) => console.error('[request failed]', err.message))
+  .catch((err) => console.error('[request failed]', err.message));
 ```
 
 Fetch will only reject a promise in case of network issues, which means HTTP errors, such as Not Found (404), should be managed inside `then()` callback.
@@ -53,14 +53,14 @@ Handlers can be implemented as such:
 ```js
 const onFulfilled = (response) => {
   if (response.status !== 200 && !response.ok) {
-    throw new Error(`[${response.status}] Unable to fetch resource`)
+    throw new Error(`[${response.status}] Unable to fetch resource`);
   }
-  return response.json()
-}
+  return response.json();
+};
 
 const onRejected = (err) => {
-  console.error(err)
-}
+  console.error(err);
+};
 ```
 
 You can do pretty much the same with async/await syntax sugar:
@@ -68,16 +68,16 @@ You can do pretty much the same with async/await syntax sugar:
 ```js
 async function getPosts() {
   try {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts/')
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts/');
 
     if (response.status !== 200 && !response.ok) {
-      throw new Error(`${response.status}: Unable to fetch resource`)
+      throw new Error(`${response.status}: Unable to fetch resource`);
     }
 
-    const json = await response.json()
-    return json
+    const json = await response.json();
+    return json;
   } catch (error) {
-    console.error('[request failed]', error.message)
+    console.error('[request failed]', error.message);
   }
 }
 ```
@@ -100,17 +100,17 @@ async function getTodo(todoId) {
   try {
     const todoResponse = await fetch(
       `https://jsonplaceholder.typicode.com/todos/${todoId}`
-    )
-    const todo = await todoResponse.json()
+    );
+    const todo = await todoResponse.json();
     // User depends on todo response
     const userResponse = await fetch(
       `https://jsonplaceholder.typicode.com/users/${todo.userId}/`
-    )
-    const user = await userResponse.json()
+    );
+    const user = await userResponse.json();
 
-    return { ...todo, user }
+    return { ...todo, user };
   } catch (error) {
-    console.error('[request failed]', error.message)
+    console.error('[request failed]', error.message);
   }
 }
 ```
@@ -132,14 +132,14 @@ Concurrency is about **dealing with multiple things at the same time**. In this 
 ```js
 const fakeApi = (data, ms) =>
   new Promise((resolve, reject) => {
-    return setTimeout(() => resolve({ data }), ms)
-  })
+    return setTimeout(() => resolve({ data }), ms);
+  });
 
 await Promise.all([
   fakeApi('Hello 1', 1000),
   fakeApi('Hello 2', 1200),
   fakeApi('Hello 3', 500),
-])
+]);
 ```
 
 `Promise.all()` is incredibly more performant than a normal fetch since it can handle multiple requests at once. On the other hand, `Promise.allSettled()` will wait for all promises to finish, regardless of whether or not it rejects.
@@ -207,34 +207,34 @@ Doing so, our final result will be:
 async function main() {
   try {
     // Get first 10 posts
-    const posts = await getPosts(1)
+    const posts = await getPosts(1);
 
-    const commentPromises = []
+    const commentPromises = [];
     for (const post of posts) {
-      commentPromises.push(getComments(post.id))
+      commentPromises.push(getComments(post.id));
     }
 
     // Get comments concurrently
-    const comments = await Promise.all([...commentPromises])
+    const comments = await Promise.all([...commentPromises]);
 
-    const usersPromises = []
-    const ids = [...new Set(posts.map((p) => p.userId))]
+    const usersPromises = [];
+    const ids = [...new Set(posts.map((p) => p.userId))];
     for (const userId of ids) {
-      usersPromises.push(getUser(userId))
+      usersPromises.push(getUser(userId));
     }
 
     // Get users concurrently
-    const users = await Promise.all([...usersPromises])
+    const users = await Promise.all([...usersPromises]);
 
     const data = posts.map((post, i) => ({
       ...post,
       user: users.find((user) => user.id === post.userId),
       comments: comments[i],
-    }))
+    }));
 
-    return data
+    return data;
   } catch (err) {
-    throw new Error('Request failed to retrieve resources')
+    throw new Error('Request failed to retrieve resources');
   }
 }
 ```

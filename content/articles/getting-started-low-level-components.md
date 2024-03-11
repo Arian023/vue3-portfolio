@@ -46,20 +46,18 @@ const SystemUpgradeAlert = () => (
         </AlertDialog.Description>
         <AlertDialog.Action
           asChild
-          className="h-10 px-6 font-semibold rounded-md bg-black text-white mr-2"
-        >
+          className="h-10 px-6 font-semibold rounded-md bg-black text-white mr-2">
           <button type="button">Yes, go ahead</button>
         </AlertDialog.Action>
         <AlertDialog.Cancel
           asChild
-          className="h-10 px-6 font-semibold rounded-md border border-black text-black"
-        >
+          className="h-10 px-6 font-semibold rounded-md border border-black text-black">
           <button type="button">Maybe later</button>
         </AlertDialog.Cancel>
       </AlertDialog.Content>
     </AlertDialog.Portal>
   </AlertDialog.Root>
-)
+);
 ```
 
 <img-lazy src="https://firebasestorage.googleapis.com/v0/b/portfolio-d3c7c.appspot.com/o/alert-demo-radix-tailwindcss.png?alt=media&token=556922c4-7378-4100-97d6-685d566a822b" alt="System upgrade alert demo component" height="636" width="870" />
@@ -104,15 +102,15 @@ $ npm install @radix-ui/react-dropdown-menu
 Then you just need to import this component and add some styles and props on top of it:
 
 ```jsx
-import styled from '@emotion/styled'
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
+import styled from '@emotion/styled';
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 
 const StyledDropdownTrigger = styled(DropdownMenu.Trigger)`
  /...
-`
+`;
 const StyledDropdownTrigger = styled(DropdownMenu.Content)`
  /...
-`
+`;
 // more and more styles...
 
 const Dropdown = (_props) => (
@@ -151,10 +149,10 @@ const Dropdown = (_props) => (
       <StyledArrow />
     </StyledDropdownContent>
   </DropdownMenu.Root>
-)
+);
 
 function App() {
-  return <Dropdown />
+  return <Dropdown />;
 }
 ```
 

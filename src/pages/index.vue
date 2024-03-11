@@ -8,15 +8,15 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
-import lozad from 'lozad'
-import { useRoute } from 'vue-router'
-import config from '@/config/siteconfig.json'
+import { onMounted } from 'vue';
+import lozad from 'lozad';
+import { useRoute } from 'vue-router';
+import config from '@/config/siteconfig.json';
 
-const { siteName: title } = config
-const { description } = config
+const { siteName: title } = config;
+const { description } = config;
 
-const route = useRoute()
+const route = useRoute();
 
 useHead({
   title,
@@ -38,10 +38,10 @@ useHead({
       content: description,
     },
   ],
-})
+});
 
 onMounted(() => {
-  const observer = lozad()
-  observer.observe()
-})
+  const observer = lozad();
+  observer.observe();
+});
 </script>

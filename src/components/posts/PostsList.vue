@@ -19,11 +19,11 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
-import { useRouter } from 'vue-router'
+import { computed } from 'vue';
+import { useRouter } from 'vue-router';
 
-const { getRoutes } = useRouter()
-const limit = 3
+const { getRoutes } = useRouter();
+const limit = 3;
 const topRecentArticles = computed(() =>
   getRoutes()
     .filter((route) => route.path.startsWith('/articles/') && route.name)
@@ -40,7 +40,7 @@ const topRecentArticles = computed(() =>
       excerpt: article.meta?.frontmatter?.excerpt,
       tags: article.meta?.frontmatter?.tags,
     }))
-)
+);
 </script>
 
 <style scoped>

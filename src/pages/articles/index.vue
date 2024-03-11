@@ -4,7 +4,9 @@
       <div class="container">
         <h1 class="hero__headline">Artículos</h1>
         <p class="hero__description">
-          Aquí puedes encontrar mis artículos publicados, incluyendo tutoriales, guías y otras curiosidades. ¡Espero que disfrutes leerlos y aprendas algo nuevo!
+          Aquí puedes encontrar mis artículos publicados, incluyendo tutoriales,
+          guías y otras curiosidades. ¡Espero que disfrutes leerlos y aprendas
+          algo nuevo!
         </p>
       </div>
     </div>
@@ -18,24 +20,23 @@
         :article-id="article.articleId"
         :excerpt="article.excerpt"
         :tags="article.tags"
-        size="long"
-      />
+        size="long" />
     </section>
   </main>
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { ref, onMounted, onUnmounted, computed } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
-const title = 'Artículos • Arian Acevedo'
+const title = 'Artículos • Arian Acevedo';
 const description =
-  'Aquí puedes encontrar mis artículos publicados, incluyendo tutoriales, guías y otras curiosidades. ¡Espero que disfrutes leerlos y aprendas algo nuevo!'
+  'Aquí puedes encontrar mis artículos publicados, incluyendo tutoriales, guías y otras curiosidades. ¡Espero que disfrutes leerlos y aprendas algo nuevo!';
 
-const main = ref(null)
+const main = ref(null);
 
-const { path } = useRoute()
-const { getRoutes } = useRouter()
+const { path } = useRoute();
+const { getRoutes } = useRouter();
 const allArticles = computed(() =>
   getRoutes()
     .filter((route) => route.path.startsWith('/articles/') && route.name)
@@ -51,7 +52,7 @@ const allArticles = computed(() =>
       excerpt: article.meta?.frontmatter?.excerpt,
       tags: article.meta?.frontmatter?.tags,
     }))
-)
+);
 
 useHead({
   title,
@@ -73,26 +74,26 @@ useHead({
       content: description,
     },
   ],
-})
+});
 const handleScrollChange = () => {
-  let timeout
+  let timeout;
 
-  main.value.style.setProperty('--state', 'running')
+  main.value.style.setProperty('--state', 'running');
 
-  window.clearTimeout(timeout)
+  window.clearTimeout(timeout);
 
   timeout = setTimeout(() => {
-    main.value.style.setProperty('--state', 'paused')
-  }, 2000)
-}
+    main.value.style.setProperty('--state', 'paused');
+  }, 2000);
+};
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScrollChange)
-})
+  window.addEventListener('scroll', handleScrollChange);
+});
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScrollChange)
-})
+  window.removeEventListener('scroll', handleScrollChange);
+});
 </script>
 
 <style scoped>

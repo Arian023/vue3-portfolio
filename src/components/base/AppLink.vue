@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { defineProps, reactive } from 'vue'
+import { defineProps, reactive } from 'vue';
 
 const props = defineProps({
   to: {
@@ -36,12 +36,12 @@ const props = defineProps({
   full: {
     type: Boolean,
   },
-})
+});
 
 const classes = reactive({
   'link--button': props.variant === 'button',
   'link--full': props.full,
-})
+});
 </script>
 
 <style scoped>

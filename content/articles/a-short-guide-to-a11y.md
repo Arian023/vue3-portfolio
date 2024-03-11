@@ -154,8 +154,7 @@ We can take advantage of certain aria attributes to make our elements more disco
 <button
   class="button"
   id="download-btn"
-  aria-labelledby="download-btn download-details"
->
+  aria-labelledby="download-btn download-details">
   Download
   <!-- this will announced as "Download JPG, 450 kb button" -->
 </button>
@@ -169,8 +168,7 @@ We can take advantage of certain aria attributes to make our elements more disco
   type="password"
   name="password"
   id="password"
-  aria-describedby="password-help"
-/>
+  aria-describedby="password-help" />
 <small id="password-help">Password must be at least 8 characters</small>
 ```
 

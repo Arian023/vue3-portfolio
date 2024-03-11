@@ -29,66 +29,66 @@ export default {
   data() {
     return {
       color: '#bf4040',
-    }
+    };
   },
   watch: {
     color() {
-      const { hue, saturation, lightness } = this.hexToHSL(this.color)
-      this.$el.querySelector('.shades').style.setProperty('--h', hue)
-      this.$el.querySelector('.shades').style.setProperty('--s', saturation)
-      this.$el.querySelector('.shades').style.setProperty('--l', lightness)
+      const { hue, saturation, lightness } = this.hexToHSL(this.color);
+      this.$el.querySelector('.shades').style.setProperty('--h', hue);
+      this.$el.querySelector('.shades').style.setProperty('--s', saturation);
+      this.$el.querySelector('.shades').style.setProperty('--l', lightness);
     },
   },
   methods: {
     hexToHSL(color) {
-      const c = color.split('')
-      let r = 0
-      let g = 0
-      let b = 0
+      const c = color.split('');
+      let r = 0;
+      let g = 0;
+      let b = 0;
 
       if (c.length === 4) {
-        r = `0x${c[1]}${c[1]}`
-        g = `0x${c[2]}${c[2]}`
-        b = `0x${c[3]}${c[3]}`
+        r = `0x${c[1]}${c[1]}`;
+        g = `0x${c[2]}${c[2]}`;
+        b = `0x${c[3]}${c[3]}`;
       } else if (c.length === 7) {
-        r = `0x${c[1]}${c[2]}`
-        g = `0x${c[3]}${c[4]}`
-        b = `0x${c[5]}${c[6]}`
+        r = `0x${c[1]}${c[2]}`;
+        g = `0x${c[3]}${c[4]}`;
+        b = `0x${c[5]}${c[6]}`;
       }
 
-      r /= 255
-      g /= 255
-      b /= 255
+      r /= 255;
+      g /= 255;
+      b /= 255;
 
-      const cmin = Math.min(r, g, b)
-      const cmax = Math.max(r, g, b)
-      const delta = cmax - cmin
-      let h = 0
-      let s = 0
-      let l = 0
+      const cmin = Math.min(r, g, b);
+      const cmax = Math.max(r, g, b);
+      const delta = cmax - cmin;
+      let h = 0;
+      let s = 0;
+      let l = 0;
 
-      if (delta === 0) h = 0
-      else if (cmax === r) h = ((g - b) / delta) % 6
-      else if (cmax === g) h = (b - r) / delta + 2
-      else h = (r - g) / delta + 4
+      if (delta === 0) h = 0;
+      else if (cmax === r) h = ((g - b) / delta) % 6;
+      else if (cmax === g) h = (b - r) / delta + 2;
+      else h = (r - g) / delta + 4;
 
-      h = Math.round(h * 60)
+      h = Math.round(h * 60);
 
-      if (h < 0) h += 360
+      if (h < 0) h += 360;
 
-      l = (cmax + cmin) / 2
-      s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1))
-      s = Number(s * 100).toFixed(1)
-      l = Number(l * 100).toFixed(1)
+      l = (cmax + cmin) / 2;
+      s = delta === 0 ? 0 : delta / (1 - Math.abs(2 * l - 1));
+      s = Number(s * 100).toFixed(1);
+      l = Number(l * 100).toFixed(1);
 
       return {
         hue: h,
         saturation: `${s}%`,
         lightness: `${l}%`,
-      }
+      };
     },
   },
-}
+};
 </script>
 
 <style scoped>

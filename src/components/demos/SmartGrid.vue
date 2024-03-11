@@ -53,8 +53,8 @@
 </template>
 
 <script>
-import ButtonGroup from '@/components/ui/ButtonGroup.vue'
-import VueButton from '@/components/ui/VueButton.vue'
+import ButtonGroup from '@/components/ui/ButtonGroup.vue';
+import VueButton from '@/components/ui/VueButton.vue';
 
 export default {
   name: 'Gallery',
@@ -65,14 +65,14 @@ export default {
   data() {
     return {
       columns: 0,
-    }
+    };
   },
   watch: {
     columns() {
-      this.$refs.gallery.style.setProperty('--gallery-columns', this.columns)
+      this.$refs.gallery.style.setProperty('--gallery-columns', this.columns);
     },
   },
-}
+};
 </script>
 
 <style scoped>

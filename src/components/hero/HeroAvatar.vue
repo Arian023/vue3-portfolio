@@ -18,7 +18,7 @@ export default {
       default: "user's picture",
     },
   },
-}
+};
 </script>
 
 <style>

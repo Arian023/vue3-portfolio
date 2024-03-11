@@ -1,18 +1,18 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import path from 'path'
-import fs from 'fs'
-import { defineConfig } from 'vite'
-import Vue from '@vitejs/plugin-vue'
-import Pages from 'vite-plugin-pages'
-import Layouts from 'vite-plugin-vue-layouts'
-import Components from 'unplugin-vue-components/vite'
-import AutoImport from 'unplugin-auto-import/vite'
-import Markdown from 'vite-plugin-vue-markdown'
-import { VitePWA } from 'vite-plugin-pwa'
-import Shiki from 'markdown-it-shiki'
-import MarkdownItAttrs from 'markdown-it-attrs'
-import MarkdownItAnchor from 'markdown-it-anchor'
-import matter from 'gray-matter'
+import path from 'path';
+import fs from 'fs';
+import { defineConfig } from 'vite';
+import Vue from '@vitejs/plugin-vue';
+import Pages from 'vite-plugin-pages';
+import Layouts from 'vite-plugin-vue-layouts';
+import Components from 'unplugin-vue-components/vite';
+import AutoImport from 'unplugin-auto-import/vite';
+import Markdown from 'vite-plugin-vue-markdown';
+import { VitePWA } from 'vite-plugin-pwa';
+import Shiki from 'markdown-it-shiki';
+import MarkdownItAttrs from 'markdown-it-attrs';
+import MarkdownItAnchor from 'markdown-it-anchor';
+import matter from 'gray-matter';
 
 export default defineConfig({
   resolve: {
@@ -32,20 +32,20 @@ export default defineConfig({
       exclude: ['**/draft/*'],
       extendRoute(route, _parent) {
         const isArticlePost =
-          route.path.includes('/articles') && route.path !== '/articles'
-        const componentPath = path.resolve(__dirname, route.component.slice(1))
+          route.path.includes('/articles') && route.path !== '/articles';
+        const componentPath = path.resolve(__dirname, route.component.slice(1));
 
         if (isArticlePost) {
-          const md = fs.readFileSync(componentPath, 'utf-8')
-          const { data: frontmatter } = matter(md)
+          const md = fs.readFileSync(componentPath, 'utf-8');
+          const { data: frontmatter } = matter(md);
 
           return {
             ...route,
             meta: { layout: 'article', frontmatter },
-          }
+          };
         }
 
-        return route
+        return route;
       },
     }),
 
@@ -66,8 +66,8 @@ export default defineConfig({
       markdownItSetup(md) {
         md.use(Shiki, {
           theme: 'one-dark-pro',
-        })
-        md.use(MarkdownItAttrs)
+        });
+        md.use(MarkdownItAttrs);
         md.use(MarkdownItAnchor, {
           permalink: MarkdownItAnchor.permalink.linkInsideHeader({
             symbol: `
@@ -78,7 +78,7 @@ export default defineConfig({
             `,
             placement: 'before',
           }),
-        })
+        });
       },
     }),
 
@@ -102,4 +102,4 @@ export default defineConfig({
   preview: {
     port: 8080,
   },
-})
+});

@@ -13,11 +13,11 @@
 </template>
 
 <script setup>
-import projects from '@content/projects/projects.json'
+import projects from '@content/projects/projects.json';
 
 const highlightedProjects = Object.values(projects).filter(
   (project) => project.pinned
-)
+);
 </script>
 
 <style scoped>

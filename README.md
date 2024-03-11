@@ -12,9 +12,9 @@ Portafolio para presentar mi perfil y mis demás proyectos en materia de program
 
 ## Construido con 🛠
 
-* [VueJS](https://vuejs.org/) - Framework JavaScript intuitivo, veloz y versátil
-* [Vite](https://vitejs.dev/) - Compilador rápido y servidor local
-* [Markdown-It](https://github.com/markdown-it/markdown-it) + [Vite-plugin-vue-markdown](https://github.com/mdit-vue/vite-plugin-vue-markdown) - Plugin para compilar Markdown como componentes de Vue
+- [VueJS](https://vuejs.org/) - Framework JavaScript intuitivo, veloz y versátil
+- [Vite](https://vitejs.dev/) - Compilador rápido y servidor local
+- [Markdown-It](https://github.com/markdown-it/markdown-it) + [Vite-plugin-vue-markdown](https://github.com/mdit-vue/vite-plugin-vue-markdown) - Plugin para compilar Markdown como componentes de Vue
 
 > Basado en el portafolio de Jeferson Brito: https://github.com/jeferson-sb/portfolio
 
@@ -24,7 +24,7 @@ Desplegado en Netlify: https://arian-acevedo.netlify.app/
 
 ## Cómo empezar 🚀
 
-Alternativamente, ver online al instante con StackBlitz: 
+Alternativamente, ver online al instante con StackBlitz:
 [![Abrir en StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/Arian023/vue3-portfolio)
 
 ### Clonar este repositorio

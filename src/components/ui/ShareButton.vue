@@ -23,7 +23,7 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps } from 'vue';
 
 const props = defineProps({
   link: {
@@ -34,12 +34,12 @@ const props = defineProps({
     type: String,
     default: '',
   },
-})
+});
 
 const share = async () => {
   await window.navigator.share({
     title: props.title ?? document.title,
     url: props.link,
-  })
-}
+  });
+};
 </script>

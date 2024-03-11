@@ -14,7 +14,7 @@ We know software can get complex over time, specially when it comes to state man
 
 Modeling states can make our path more clear so we can see all the possibilities, bad and happy ones or even catch bugs a lot earlier than usual.
 
-[Finite state machines](https://en.wikipedia.org/wiki/Finite-state_machine) are modeled for determining which state your application could be in. It is composed of a finite number of states, an initial state, and transitions between each of them. A **state** describes what is the status of the system at that time. You can think of them as *behaviors*.
+[Finite state machines](https://en.wikipedia.org/wiki/Finite-state_machine) are modeled for determining which state your application could be in. It is composed of a finite number of states, an initial state, and transitions between each of them. A **state** describes what is the status of the system at that time. You can think of them as _behaviors_.
 
 Aside from modeling modern systems, finite state machines are a mathematical concept we can recognize being implemented in many things in the world outside. They are modeled on embedded systems, electronic components, network protocols and whole lot more.
 
@@ -44,7 +44,7 @@ if (!isLoading)
 	// do something
 ```
 
-But *booleans* don't express enough what is happening in your application.
+But _booleans_ don't express enough what is happening in your application.
 
 For example, you might have seen UI flows where you click something on the screen, it makes a request, then a loading spinner shows up, and later a success message is shown while the spinner is **still** on the page even though those two pieces of information weren't supposed to coexist.
 
@@ -57,26 +57,26 @@ A simple state machine can be build-out of a switch statement:
 ```jsx
 // If you've used reducers before this might look familiar to you
 const status = {
-	LOADING: 'LOADING',
-	INVALID: 'INVALID',
-	DISABLED: 'DISABLED',
-	SUBMITTED: 'SUBMITTED'
-}
+  LOADING: 'LOADING',
+  INVALID: 'INVALID',
+  DISABLED: 'DISABLED',
+  SUBMITTED: 'SUBMITTED',
+};
 
 switch (formState) {
-	case formState === status.LOADING:
-		// ...
-		break;
-	case formState === status.INVALID:
-		// ...
-		break;
-	case formState === status.DISABLED:
-		// ...
-		break;
-	case formState === status.SUBMITTED:
-		// ...
-		break;
-	default:
+  case formState === status.LOADING:
+    // ...
+    break;
+  case formState === status.INVALID:
+    // ...
+    break;
+  case formState === status.DISABLED:
+    // ...
+    break;
+  case formState === status.SUBMITTED:
+    // ...
+    break;
+  default:
     break;
 }
 ```
@@ -85,35 +85,33 @@ Now you have a more descriptive and readable way to indicate which of the finite
 
 ```js
 const airplaneMachine = {
-  initial: "flying",
-  value: "flying",
+  initial: 'flying',
+  value: 'flying',
   states: {
     flying: {
       on: {
-        LAND: "landing"
-      }
+        LAND: 'landing',
+      },
     },
     landing: {
       on: {
-        TAKE_OFF: "flying"
-      }
-    }
-  }
+        TAKE_OFF: 'flying',
+      },
+    },
+  },
 };
 
 const transition = (machine, state, input) => {
-  const nextState = machine
-    .states[state]
-    .on?.[input.type]
+  const nextState = machine.states[state].on?.[input.type];
 
   return {
     ...machine,
-    value: nextState
-  }
-}
+    value: nextState,
+  };
+};
 
-const { value } = transition(airplaneMachine, 'flying', { type: 'LAND' })
-value // 'landing'
+const { value } = transition(airplaneMachine, 'flying', { type: 'LAND' });
+value; // 'landing'
 ```
 
 Ok, that looks a lot more readable, doesn't it? This is looking closer to what we're going to see on [XState](https://xstate.js.org/docs/) later on this post. The best part of it is that you can apply this same concept to any technology you want.
@@ -137,31 +135,31 @@ Back to our example, here's how a FSM is defined using XState:
 import { createMachine, interpret } from 'xstate';
 
 const airplaneMachine = createMachine({
-	id: 'airplane',
-	initial: 'prepared',
-	states: {
-		prepared: {
-			on: { READY: 'lift' }
-		},
-		lift: {
-			on: { TAKE_OFF: 'flying' }
-		},
-		flying: {
-			on: { LAND: 'landing' }
-		},
-		landing: {
-			on: { STOP: 'prepared' }
-		}
-	}
-})
+  id: 'airplane',
+  initial: 'prepared',
+  states: {
+    prepared: {
+      on: { READY: 'lift' },
+    },
+    lift: {
+      on: { TAKE_OFF: 'flying' },
+    },
+    flying: {
+      on: { LAND: 'landing' },
+    },
+    landing: {
+      on: { STOP: 'prepared' },
+    },
+  },
+});
 
 const planeInterpreter = interpret(airplaneMachine).onTransition(({ value }) =>
-	console.log(value)
+  console.log(value)
 );
 
 planeInterpreter.start(); // prepared
-planeInterpreter.send("READY"); // lift
-planeInterpreter.send("TAKE_OFF"); // flying
+planeInterpreter.send('READY'); // lift
+planeInterpreter.send('TAKE_OFF'); // flying
 ```
 
 Here we're initializing our state machine in the "prepared" state and once we instance an `interpreter` we can switch between states by dispatching `events` throughout the app. Each event targets a state, which can be the next one or itself and, you can have more than one event per state.
@@ -224,44 +222,46 @@ In order to fetch external data, we can invoke a promise or callback under a sta
 ```js
 import { createMachine, interpret, assign } from 'xstate';
 
-function fetchLatestFlight() { /* some api call */ }
+function fetchLatestFlight() {
+  /* some api call */
+}
 
 const airplaneMachine = createMachine({
-	id: 'airplane',
-	initial: 'onboarding',
-	context: {
-		flight: null,
-	},
-	states: {
-		onboarding: {
-			invoke: {
-				src: fetchLatestFlight,
-				onDone: {
-					target: 'prepared',
-					actions: assign({ flight: (_ctx, event) => event.data })
-				},
-				onError: {
-					target: 'failure',
-					actions: () => console.error('Failed to retrieve flight data')
-				}
-			}
-		},
-		prepared: {
-		  on: {
-			READY: "lift",
-			CANCEL: 'onboarding'
-		  },
-		},
-		failure: {}
-		// ...
-	}
-})
+  id: 'airplane',
+  initial: 'onboarding',
+  context: {
+    flight: null,
+  },
+  states: {
+    onboarding: {
+      invoke: {
+        src: fetchLatestFlight,
+        onDone: {
+          target: 'prepared',
+          actions: assign({ flight: (_ctx, event) => event.data }),
+        },
+        onError: {
+          target: 'failure',
+          actions: () => console.error('Failed to retrieve flight data'),
+        },
+      },
+    },
+    prepared: {
+      on: {
+        READY: 'lift',
+        CANCEL: 'onboarding',
+      },
+    },
+    failure: {},
+    // ...
+  },
+});
 
 interpret(airplaneMachine)
-	.onTransition(({ context }) => {
-	  console.log(context);
-	})
-	.start()
+  .onTransition(({ context }) => {
+    console.log(context);
+  })
+  .start();
 /*
 flight: {
 	"passengers":100
@@ -280,9 +280,9 @@ In XState, you can opt to do a pure state transition assertion, for instance whe
 ```jsx
 describe('when "TAKE_OFF" event occurs given "lift" state', () => {
   it('should reach "flying" state', () => {
-    const state = airplaneMachine.transition("lift", { type: "TAKE_OFF" });
+    const state = airplaneMachine.transition('lift', { type: 'TAKE_OFF' });
 
-    expect(state.matches("flying")).toBeTruthy();
+    expect(state.matches('flying')).toBeTruthy();
   });
 });
 ```
@@ -295,22 +295,27 @@ const mockMachine = airplaneMachine.withConfig({
     fetchLatestFlight: () =>
       new Promise((resolve) =>
         setTimeout(
-          () => resolve({ passengers: 120, from: "São Paulo", to: "San Francisco" }),
+          () =>
+            resolve({
+              passengers: 120,
+              from: 'São Paulo',
+              to: 'San Francisco',
+            }),
           4000
         )
-      )
-  }
+      ),
+  },
 });
 
 describe('when is in "onboarding" initial state', () => {
-  it("should invoke fetch and reach to prepared state", (done) => {
+  it('should invoke fetch and reach to prepared state', (done) => {
     interpret(mockMachine)
       .onTransition((state) => {
-        if (state.matches("prepared")) {
+        if (state.matches('prepared')) {
           expect(state.context.flight).toStrictEqual({
             passengers: 120,
-            from: "São Paulo",
-            to: "San Francisco"
+            from: 'São Paulo',
+            to: 'San Francisco',
           });
         }
 

@@ -6,8 +6,7 @@
         :alt="`${title} project screenshot`"
         class="project-card__image"
         width="600"
-        height="220"
-      />
+        height="220" />
     </figure>
     <div class="project-card__content">
       <div class="project-card__header">
@@ -22,8 +21,7 @@
           full
           is-external
           :to="github"
-          :aria-labelledby="`${titleId} ${buttonId}`"
-        >
+          :aria-labelledby="`${titleId} ${buttonId}`">
           Ver en GitHub
         </AppLink>
       </div>
@@ -32,7 +30,7 @@
 </template>
 
 <script setup>
-import { computed, defineProps } from 'vue'
+import { computed, defineProps } from 'vue';
 
 const props = defineProps({
   thumbnail: String,
@@ -40,12 +38,12 @@ const props = defineProps({
   description: String,
   tags: String,
   github: String,
-})
+});
 
-const titleSlug = props.title.toLowerCase().replaceAll(' ', '')
+const titleSlug = props.title.toLowerCase().replaceAll(' ', '');
 
-const titleId = computed(() => `title-${titleSlug}`)
-const buttonId = computed(() => `button-${titleSlug}`)
+const titleId = computed(() => `title-${titleSlug}`);
+const buttonId = computed(() => `button-${titleSlug}`);
 </script>
 
 <style scoped>

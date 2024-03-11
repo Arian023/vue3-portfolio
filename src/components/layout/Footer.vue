@@ -3,31 +3,33 @@
     <div class="container">
       <p class="footer__copyright">
         <em>Hecho con ♥ por Arian © 2023.</em>
-        <span>El formato del sitio se encuentra bajo <a href="https://github.com/Arian023/vue3-portfolio/blob/main/LICENSE">licencia MIT</a>.</span>
+        <span
+          >El formato del sitio se encuentra bajo
+          <a href="https://github.com/Arian023/vue3-portfolio/blob/main/LICENSE"
+            >licencia MIT</a
+          >.</span
+        >
       </p>
       <div class="built-tech">
         <AppLink
           to="https://www.netlify.com/"
           aria-label="Hosteado en Netlify"
           title="Hosteado en Netlify"
-          is-external
-        >
+          is-external>
           <NetlifyLogoSVG />
         </AppLink>
         <AppLink
           to="https://vuejs.org/"
           aria-label="Hecho con Vue"
           title="Hecho con Vue.js"
-          is-external
-        >
+          is-external>
           <VueSVG />
         </AppLink>
         <AppLink
           to="https://github.com/Arian023"
           aria-label="Código fuente en Github"
           title="Código fuente en Github"
-          is-external
-        >
+          is-external>
           <OctocatSVG />
         </AppLink>
       </div>

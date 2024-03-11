@@ -1,6 +1,6 @@
 <script setup>
-import { useHead } from '@vueuse/head'
-import config from '@/config/siteconfig.json'
+import { useHead } from '@vueuse/head';
+import config from '@/config/siteconfig.json';
 
 useHead({
   title: config.siteName,
@@ -11,7 +11,7 @@ useHead({
       content: import.meta.env.VITE_GOOGLE_SEARCH_CONSOLE_TOKEN,
     },
   ],
-})
+});
 </script>
 
 <template>

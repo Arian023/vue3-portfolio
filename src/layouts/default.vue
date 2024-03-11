@@ -10,25 +10,25 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted } from 'vue';
 
 onMounted(() => {
-  const storedTheme = localStorage.getItem('@jb/selected-theme')
-  const setAttrValue = (el, attr, value) => el.setAttribute(attr, value)
+  const storedTheme = localStorage.getItem('@jb/selected-theme');
+  const setAttrValue = (el, attr, value) => el.setAttribute(attr, value);
 
   if (!storedTheme) {
     const { matches: preferDarkScheme } = window.matchMedia(
       '(prefers-color-scheme: dark)'
-    )
+    );
     setAttrValue(
       document.body,
       'data-theme',
       preferDarkScheme ? 'dark' : 'light'
-    )
+    );
   } else {
-    setAttrValue(document.body, 'data-theme', storedTheme)
+    setAttrValue(document.body, 'data-theme', storedTheme);
   }
-})
+});
 </script>
 
 <style>

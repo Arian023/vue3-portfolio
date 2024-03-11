@@ -25,10 +25,10 @@ export default {
       return {
         'interactive-wrapper': true,
         'interactive-wrapper--borderless': this.borderless,
-      }
+      };
     },
   },
-}
+};
 </script>
 
 <style scoped>

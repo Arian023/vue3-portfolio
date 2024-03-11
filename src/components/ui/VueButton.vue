@@ -3,8 +3,7 @@
     v-bind="$attrs"
     :is="isAnchor ? 'router-link' : 'button'"
     :class="styles"
-    :to="isAnchor ? href : null"
-  >
+    :to="isAnchor ? href : null">
     <slot name="icon"></slot>
     <slot />
   </component>
@@ -17,7 +16,7 @@ export default {
       type: String,
       default: 'default',
       validator(val) {
-        return ['primary', 'outline', 'default', 'link'].includes(val)
+        return ['primary', 'outline', 'default', 'link'].includes(val);
       },
     },
     size: {
@@ -40,7 +39,7 @@ export default {
   },
   computed: {
     type() {
-      return `button--${this.variant}`
+      return `button--${this.variant}`;
     },
     styles() {
       return {
@@ -50,13 +49,13 @@ export default {
         'button--full': this.full,
         'button--icon': Boolean(this.$slots.icon),
         'button--rounded-full': this.circle,
-      }
+      };
     },
     isAnchor() {
-      return this.variant === 'link' || Boolean(this.href)
+      return this.variant === 'link' || Boolean(this.href);
     },
   },
-}
+};
 </script>
 
 <style scoped>

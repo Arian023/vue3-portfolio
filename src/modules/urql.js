@@ -1,4 +1,4 @@
-import urql from '@urql/vue'
+import urql from '@urql/vue';
 
 export const install = ({ isClient, app }) => {
   // if (!isClient) return
@@ -6,10 +6,10 @@ export const install = ({ isClient, app }) => {
   app.use(urql, {
     url: 'https://api.github.com/graphql',
     fetchOptions: () => {
-      const token = import.meta.env.VITE_GITHUB_TOKEN
+      const token = import.meta.env.VITE_GITHUB_TOKEN;
       return {
         headers: { authorization: token ? `Bearer ${token}` : '' },
-      }
+      };
     },
-  })
-}
+  });
+};

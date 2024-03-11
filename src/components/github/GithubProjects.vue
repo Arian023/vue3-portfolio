@@ -8,21 +8,20 @@
         :key="pr.node.id"
         :repository="pr.node.repository"
         :url="pr.node.url"
-        :number="pr.node.number"
-      />
+        :number="pr.node.number" />
     </div>
     <GithubCardEmpty v-else />
   </section>
 </template>
 
 <script setup>
-import { computed, defineAsyncComponent } from 'vue'
-import { useQuery } from '@urql/vue'
+import { computed, defineAsyncComponent } from 'vue';
+import { useQuery } from '@urql/vue';
 
 const GithubRepoCard = defineAsyncComponent({
   loader: () => import('@/components/github/GithubRepoCard.vue'),
   loadingComponent: '<p>Loading...</p>',
-})
+});
 const { data } = useQuery({
   query: `
   query {
@@ -51,24 +50,24 @@ const { data } = useQuery({
     }
   }
 `,
-})
+});
 
 const lastThreeMonths = () => {
-  const today = new Date()
-  today.setMonth(today.getMonth() - 3)
-  return today
-}
+  const today = new Date();
+  today.setMonth(today.getMonth() - 3);
+  return today;
+};
 
 const pullRequests = computed(() =>
   data.value?.user?.pullRequests?.edges?.filter((pr, index, arr) => {
-    const isFork = pr.node.isCrossRepository
-    const isRecent = new Date(pr.node.createdAt) >= lastThreeMonths()
+    const isFork = pr.node.isCrossRepository;
+    const isRecent = new Date(pr.node.createdAt) >= lastThreeMonths();
     const nonDuplicate =
       arr.findIndex((x) => x.node.repository.id === pr.node.repository.id) ===
-      index
-    return isFork && isRecent && nonDuplicate
+      index;
+    return isFork && isRecent && nonDuplicate;
   })
-)
+);
 </script>
 
 <style scoped>

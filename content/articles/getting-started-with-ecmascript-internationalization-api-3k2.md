@@ -27,9 +27,9 @@ Let's take a look at some of them:
 const listFormat = new Intl.ListFormat('en', {
   style: 'long', // the length of output message, it can be "long", "short" or "narrow"
   type: 'conjunction', // "and" separator,
-})
+});
 
-listFormat.format(['tom holland', 'tobey maguire', 'andrew garfield'])
+listFormat.format(['tom holland', 'tobey maguire', 'andrew garfield']);
 
 // tom holland, tobey maguire, and andrew garfield
 ```
@@ -44,7 +44,7 @@ new Intl.DateTimeFormat('en', {
   year: 'numeric',
   month: 'short',
   day: '2-digit',
-}).format(new Date(2021, 07, 27))
+}).format(new Date(2021, 07, 27));
 
 // Friday, Aug 27, 2021
 ```
@@ -55,7 +55,7 @@ You can also display both date and time in different styles:
 new Intl.DateTimeFormat('en', {
   dateStyle: 'long',
   timeStyle: 'short',
-}).format(new Date(2021, 07, 27))
+}).format(new Date(2021, 07, 27));
 
 // August 27, 2021 at 9:55 PM
 ```
@@ -70,15 +70,15 @@ Unlike the Date object methods we've mentioned previously, we can make use of th
 const timeFormat = new Intl.RelativeTimeFormat('en-US', {
   style: 'long',
   numeric: 'auto',
-})
+});
 
-timeFormat.format(1, 'hour')
+timeFormat.format(1, 'hour');
 // in 1 hour
 
-timeFormat.format(-5, 'month')
+timeFormat.format(-5, 'month');
 // 5 months ago
 
-timeFormat.format(1, 'day')
+timeFormat.format(1, 'day');
 // tomorrow
 ```
 
@@ -89,19 +89,19 @@ timeFormat.format(1, 'day')
 It can be useful when working with geolocation-based systems and financial software as you can easily see the full normalized string based on the language tag without having to maintain a huge list of country's translations.
 
 ```js
-const regionNames = new Intl.DisplayNames(['en-US'], { type: 'region' })
+const regionNames = new Intl.DisplayNames(['en-US'], { type: 'region' });
 
-regionNames.of('UK')
+regionNames.of('UK');
 // United Kingdom
 
-const currencies = new Intl.DisplayNames(['en-US'], { type: 'currency' })
+const currencies = new Intl.DisplayNames(['en-US'], { type: 'currency' });
 
-currencies.of('JPY')
+currencies.of('JPY');
 // Japanese Yen
 
-const language = new Intl.DisplayNames(['en'], { type: 'language' })
+const language = new Intl.DisplayNames(['en'], { type: 'language' });
 
-language.of('PT-BR')
+language.of('PT-BR');
 // Brazilian Portuguese
 ```
 
@@ -114,16 +114,16 @@ Formats a number in currency-style with currency symbol and no fraction digits.
 > Note: This API relies on the ISO 4217 standard that defines numeric and alphabetic currency codes.
 
 ```js
-const language = navigator.language ?? 'en-US'
+const language = navigator.language ?? 'en-US';
 
 const euroCurrency = new Intl.NumberFormat(language, {
   style: 'currency',
   currency: 'EUR', // currency code, such as "USD", "JPY", "BRL"
   currencyDisplay: 'narrowSymbol', // show the currency symbol (default)
   maximumFractionDigits: 0,
-})
+});
 
-euroCurrency.format(2999)
+euroCurrency.format(2999);
 // €2,999
 ```
 
@@ -133,7 +133,7 @@ Formats a number to megabyte unit. When using units you can check the possible v
 new Intl.NumberFormat(language, {
   style: 'unit',
   unit: 'megabyte',
-}).format(100)
+}).format(100);
 // 100 MB
 ```
 
@@ -144,10 +144,10 @@ new Intl.NumberFormat('en-US', {
   // whether to format as plain number (standard), order-of-magnitude (scientific) or compact string
   notation: 'compact',
   compactDisplay: 'short',
-}).format(7_000_000_000)
+}).format(7_000_000_000);
 // 7B
 
-new Intl.NumberFormat(language, { notation: 'scientific' }).format(Math.PI)
+new Intl.NumberFormat(language, { notation: 'scientific' }).format(Math.PI);
 // 3.142E0
 ```
 
@@ -156,30 +156,30 @@ new Intl.NumberFormat(language, { notation: 'scientific' }).format(Math.PI)
 `Intl.PluralRules` — constructor for objects that enable plural-sensitive formatting and language-specific rules for plurals.
 
 ```js
-const pluralRule = new Intl.PluralRules('RU')
+const pluralRule = new Intl.PluralRules('RU');
 
-new Intl.PluralRules('RU').select(0)
+new Intl.PluralRules('RU').select(0);
 // many
-new Intl.PluralRules('RU').select(1)
+new Intl.PluralRules('RU').select(1);
 // one
-new Intl.PluralRules('RU').select(2)
+new Intl.PluralRules('RU').select(2);
 // few
 ```
 
 We can make use of this method to choose a plural form of a sentence.
 
 ```js
-const usPluralRule = new Intl.PluralRules('en-US')
+const usPluralRule = new Intl.PluralRules('en-US');
 const pluralize = (quantity, singular, plural) => {
-  const result = usPluralRule.select(quantity)
-  const isSingular = result === 'one'
+  const result = usPluralRule.select(quantity);
+  const isSingular = result === 'one';
 
-  return isSingular ? `${quantity} ${singular}` : `${quantity} ${plural}`
-}
+  return isSingular ? `${quantity} ${singular}` : `${quantity} ${plural}`;
+};
 
-pluralize(1, 'car', 'cars')
+pluralize(1, 'car', 'cars');
 // 1 car
-pluralize(2, 'car', 'cars')
+pluralize(2, 'car', 'cars');
 // 2 cars
 ```
 
@@ -188,7 +188,7 @@ pluralize(2, 'car', 'cars')
 Part of the constructors of the Intl API has a method `resolvedOptions` that can be used to display the default options computed to a chosen locale.
 
 ```js
-new Intl.NumberFormat('en-US').resolvedOptions()
+new Intl.NumberFormat('en-US').resolvedOptions();
 
 // locale: "en-US"
 // maximumFractionDigits: 3
@@ -210,14 +210,14 @@ All constructors under the Internalization API requires at least one language co
 ```js
 const getLanguageCodes = (codes) => {
   try {
-    const locales = Intl.getCanonicalLocales(codes)
-    return locales
+    const locales = Intl.getCanonicalLocales(codes);
+    return locales;
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
-}
+};
 
-getLanguageCodes(['en-us', 'Pt-Br'])
+getLanguageCodes(['en-us', 'Pt-Br']);
 // ['en-US', 'pt-BR']
 ```
 

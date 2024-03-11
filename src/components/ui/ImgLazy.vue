@@ -7,8 +7,7 @@
     :class="styles"
     :width="width"
     :height="height"
-    :style="`background-color: ${bgColor};`"
-  />
+    :style="`background-color: ${bgColor};`" />
 </template>
 
 <script>
@@ -55,10 +54,10 @@ export default {
         'full-bleed': this.fullBleed,
         contain: this.fit === 'contain',
         cover: this.fit === 'cover',
-      }
+      };
     },
   },
-}
+};
 </script>
 
 <style scoped>

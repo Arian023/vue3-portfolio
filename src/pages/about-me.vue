@@ -15,16 +15,28 @@
         <h1 class="about-content__headline">Sobre mí</h1>
         <p>👋 ¡Hola! ¿Cómo estás?</p>
         <p>
-          Me llamo Arian <small>(como Adrián, ¡pero sin la D!)</small>, y soy un <strong>Técnico Universitario en Desarrollo Web</strong>, con dicho título alcanzado en la Universidad Nacional del Comahue en el año 2021. 
+          Me llamo Arian <small>(como Adrián, ¡pero sin la D!)</small>, y soy un
+          <strong>Técnico Universitario en Desarrollo Web</strong>, con dicho
+          título alcanzado en la Universidad Nacional del Comahue en el año
+          2021.
         </p>
         <p>
-          Mientras estuve estudiando, me dediqué mayormente al Soporte Técnico TI en campo, pero estoy muy dispuesto a dar el salto en mi carrera profesional por el lado de la ingeniería de software.
+          Mientras estuve estudiando, me dediqué mayormente al Soporte Técnico
+          TI en campo, pero estoy muy dispuesto a dar el salto en mi carrera
+          profesional por el lado de la ingeniería de software.
         </p>
         <p>
-          Por ello, estuve realizando diversos cursos y conceptos, entre los que puedo mencionar: accesibilidad y experiencia de usuario, edición de imágenes mediante Adobe Photoshop, conceptos de computación en la nube (léase AWS y GCP), frameworks de PHP y Javascript <small>(¡como Vue, con el que está armado este sitio!)</small>.
+          Por ello, estuve realizando diversos cursos y conceptos, entre los que
+          puedo mencionar: accesibilidad y experiencia de usuario, edición de
+          imágenes mediante Adobe Photoshop, conceptos de computación en la nube
+          (léase AWS y GCP), frameworks de PHP y Javascript
+          <small>(¡como Vue, con el que está armado este sitio!)</small>.
         </p>
         <p>
-          En fin, una mezcla bastante variada de contenido, ya que uno hoy en día no puede quedarse atrás con la tecnología. Pero más allá de la programación, estoy interesado en la tecnología como hobby, así como el gaming en PC.
+          En fin, una mezcla bastante variada de contenido, ya que uno hoy en
+          día no puede quedarse atrás con la tecnología. Pero más allá de la
+          programación, estoy interesado en la tecnología como hobby, así como
+          el gaming en PC.
         </p>
         <SocialMediaIcons boxed />
       </article>
@@ -33,12 +45,12 @@
 </template>
 
 <script setup>
-import { useRoute } from 'vue-router'
-import config from '../config/siteconfig.json'
+import { useRoute } from 'vue-router';
+import config from '../config/siteconfig.json';
 
-const title = 'Sobre mí • Arian Acevedo'
-const { description } = config
-const route = useRoute()
+const title = 'Sobre mí • Arian Acevedo';
+const { description } = config;
+const route = useRoute();
 
 useHead({
   title,
@@ -60,7 +72,7 @@ useHead({
       content: description,
     },
   ],
-})
+});
 </script>
 
 <route lang="yaml">

@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import VueButton from '@/components/ui/VueButton'
+import VueButton from '@/components/ui/VueButton';
 
 export default {
   components: {
@@ -13,15 +13,15 @@ export default {
   },
   methods: {
     ripple(e) {
-      const rect = e.target.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
+      const rect = e.target.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
 
-      this.$el.style.setProperty('--x', x)
-      this.$el.style.setProperty('--y', y)
+      this.$el.style.setProperty('--x', x);
+      this.$el.style.setProperty('--y', y);
     },
   },
-}
+};
 </script>
 
 <style scoped>

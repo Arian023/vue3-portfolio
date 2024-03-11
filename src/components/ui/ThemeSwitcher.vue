@@ -2,8 +2,7 @@
   <button
     class="theme-switcher"
     aria-label="Cambia tema entre claro y oscuro"
-    @click="toggleTheme"
-  >
+    @click="toggleTheme">
     <template v-if="variant === 'fade'">
       <transition name="fade">
         <LampOnSVG v-if="current === 'light'" />
@@ -15,38 +14,38 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed, defineProps } from 'vue'
+import { ref, onMounted, computed, defineProps } from 'vue';
 
 defineProps({
   variant: {
     type: String,
     default: 'fade',
   },
-})
+});
 
-const themes = ['light', 'dark']
-const current = ref('dark')
+const themes = ['light', 'dark'];
+const current = ref('dark');
 
 onMounted(() => {
   current.value =
     document.body.getAttribute('data-theme') ??
-    localStorage.getItem('@jb/selected-theme')
-})
+    localStorage.getItem('@jb/selected-theme');
+});
 
 const svgClass = computed(() => {
-  const theme = current.value === 'light' ? 'on' : 'off'
-  return `animated ${theme}`
-})
+  const theme = current.value === 'light' ? 'on' : 'off';
+  return `animated ${theme}`;
+});
 
 const toggleTheme = () => {
-  const currentIndex = themes.indexOf(current.value) + 1
-  const nextIndex = currentIndex % themes.length
-  current.value = themes[nextIndex]
+  const currentIndex = themes.indexOf(current.value) + 1;
+  const nextIndex = currentIndex % themes.length;
+  current.value = themes[nextIndex];
 
-  localStorage.setItem('@jb/selected-theme', current.value)
+  localStorage.setItem('@jb/selected-theme', current.value);
 
-  document.body.setAttribute('data-theme', current.value)
-}
+  document.body.setAttribute('data-theme', current.value);
+};
 </script>
 
 <style scoped>

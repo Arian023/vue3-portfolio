@@ -9,8 +9,7 @@
         :crossposted-on="crosspostedOn"
         :crosspost-link="crosspostLink"
         :datetime="publishedAt"
-        :display-date="formattedDate"
-      />
+        :display-date="formattedDate" />
       <ArticleControls :article-url="canonicalUrl" />
       <section class="container">
         <div ref="articleBody" class="article-body">
@@ -19,8 +18,7 @@
               <component
                 :is="Component"
                 :key="route.path"
-                class="article-body-content"
-              />
+                class="article-body-content" />
             </transition>
           </router-view>
         </div>
@@ -31,10 +29,10 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
-import lozad from 'lozad'
-import config from '@/config/siteconfig.json'
+import { computed, onMounted } from 'vue';
+import { useRoute } from 'vue-router';
+import lozad from 'lozad';
+import config from '@/config/siteconfig.json';
 
 useHead({
   link: [
@@ -43,27 +41,27 @@ useHead({
       href: 'https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap',
     },
   ],
-})
-const route = useRoute()
+});
+const route = useRoute();
 
-const title = route.meta.frontmatter?.title
-const tags = route.meta.frontmatter?.tags.split(',')
-const crosspostedOn = route.meta.frontmatter?.crosspostedOn
-const crosspostLink = route.meta.frontmatter?.crosspostedLink
-const publishedAt = route.meta.frontmatter?.published_at
-const canonicalUrl = `${config.siteUrl}${route.path}`
+const title = route.meta.frontmatter?.title;
+const tags = route.meta.frontmatter?.tags.split(',');
+const crosspostedOn = route.meta.frontmatter?.crosspostedOn;
+const crosspostLink = route.meta.frontmatter?.crosspostedLink;
+const publishedAt = route.meta.frontmatter?.published_at;
+const canonicalUrl = `${config.siteUrl}${route.path}`;
 const formattedDate = computed(() =>
   new Date(publishedAt).toLocaleString(['es-ES'], {
     day: '2-digit',
     month: 'short',
     year: 'numeric',
   })
-)
+);
 
 onMounted(() => {
-  const observer = lozad()
-  observer.observe()
-})
+  const observer = lozad();
+  observer.observe();
+});
 </script>
 
 <style>

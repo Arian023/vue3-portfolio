@@ -11,35 +11,40 @@
       <h4 :id="articleId" class="post-preview__title">{{ title }}</h4>
     </AppLink>
 
-    <Tag v-show="size === 'short' && isRecentPost" tag-name="NEW" variant="accent" />
+    <Tag
+      v-show="size === 'short' && isRecentPost"
+      tag-name="NEW"
+      variant="accent" />
     <template v-if="size === 'long'">
       <p class="post-preview__description">
         {{ excerpt }}
       </p>
-      <VueButton :href="href" :aria-describedby="articleId"> Read more </VueButton>
+      <VueButton :href="href" :aria-describedby="articleId">
+        Read more
+      </VueButton>
     </template>
   </article>
 </template>
 
 <script setup>
-import { defineProps, computed } from 'vue'
+import { defineProps, computed } from 'vue';
 
 const props = defineProps({
   date: {
     type: Date,
-    default: ''
+    default: '',
   },
   title: {
     type: String,
-    default: ''
+    default: '',
   },
   href: {
     type: String,
-    default: ''
+    default: '',
   },
   articleId: {
     type: String,
-    default: ''
+    default: '',
   },
   excerpt: {
     type: String,
@@ -47,29 +52,29 @@ const props = defineProps({
   },
   tags: {
     type: String,
-    default: ''
+    default: '',
   },
   size: {
     type: String,
     default: 'short',
   },
-})
+});
 
 const styles = computed(() => ({
   'post-preview': true,
   'post-preview--long': props.size === 'long',
   'post-preview--short': props.size === 'short',
-}))
+}));
 
 const diffInDays = (a, b) => {
-  const DAY_IN_MS = 1000 * 3600 * 24
-  const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate())
-  const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate())
+  const DAY_IN_MS = 1000 * 3600 * 24;
+  const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+  const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
 
-  return Math.floor((utc2 - utc1) / DAY_IN_MS)
-}
+  return Math.floor((utc2 - utc1) / DAY_IN_MS);
+};
 
-const isRecentPost = diffInDays(props.date, new Date()) <= 7
+const isRecentPost = diffInDays(props.date, new Date()) <= 7;
 
 const formattedDate = computed(() =>
   props.date.toLocaleString(['es-ES'], {
@@ -77,7 +82,7 @@ const formattedDate = computed(() =>
     month: 'short',
     year: 'numeric',
   })
-)
+);
 </script>
 
 <style scoped>

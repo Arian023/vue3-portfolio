@@ -54,17 +54,17 @@
 export default {
   methods: {
     showMenu() {
-      const button = document.querySelector('.hamburger-menu')
-      const menu = document.querySelector('.mobile-navbar')
+      const button = document.querySelector('.hamburger-menu');
+      const menu = document.querySelector('.mobile-navbar');
 
-      button.classList.toggle('hamburger-menu--active')
-      menu.classList.toggle('mobile-navbar--opened')
+      button.classList.toggle('hamburger-menu--active');
+      menu.classList.toggle('mobile-navbar--opened');
 
-      const isActive = button.classList.contains('hamburger-menu--active')
-      button.setAttribute('aria-expanded', isActive)
+      const isActive = button.classList.contains('hamburger-menu--active');
+      button.setAttribute('aria-expanded', isActive);
     },
   },
-}
+};
 </script>
 
 <style scoped>

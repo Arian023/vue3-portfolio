@@ -26,13 +26,13 @@
 </template>
 
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps } from 'vue';
 
 defineProps({
   repository: Object,
   url: String,
   number: Number,
-})
+});
 </script>
 
 <style scoped>

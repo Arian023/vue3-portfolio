@@ -44,29 +44,32 @@ export default {
         'text-color': '#303030',
         'accent-color': '#374151',
       },
-    }
+    };
   },
   watch: {
     theme() {
-      this.$refs.body.style = ''
-      this.setTheme(this.theme)
+      this.$refs.body.style = '';
+      this.setTheme(this.theme);
     },
   },
   mounted() {
-    this.setTheme(this.theme)
+    this.setTheme(this.theme);
   },
   methods: {
     setTheme(theme) {
       if (this.theme === 'custom') {
         Object.keys(this.themeObject).forEach((key) => {
-          this.$refs.body.style.setProperty(`--v-${key}`, this.themeObject[key])
-        })
+          this.$refs.body.style.setProperty(
+            `--v-${key}`,
+            this.themeObject[key]
+          );
+        });
       } else {
-        this.$refs.body.setAttribute('data-v-theme', theme)
+        this.$refs.body.setAttribute('data-v-theme', theme);
       }
     },
   },
-}
+};
 </script>
 
 <style scoped>
